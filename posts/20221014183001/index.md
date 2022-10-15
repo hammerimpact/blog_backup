@@ -1,6 +1,6 @@
 MS 공식 가이드 - 마크다운과 비주얼 스튜디오 코드
 
-마크다운/번역
+마크다운/번역/vscode
 
 [원본 링크](https://code.visualstudio.com/docs/languages/markdown#_editing-markdown)
 
