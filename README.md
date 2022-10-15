@@ -1,2 +1,2 @@
-# blog_backup
+# Blog Backup
 my blog contents backup repository
