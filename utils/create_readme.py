@@ -18,10 +18,11 @@ class CPostInfo :
     
 
 def CreatePostInfo(szRoot, szDicName) :
-    if os.path.isdir(szRoot + szDicName) == False :
+    szPath = f"{szRoot}/{szDicName}"
+    if os.path.isdir(szPath) == False :
         return
 
-    szMDFilePath = szRoot + szDicName + "/index.md"
+    szMDFilePath = f"{szPath}/index.md"
     if os.path.isfile(szMDFilePath) == False :
         return
 
@@ -58,15 +59,19 @@ def main() :
 
     # print directories 
     lstPostInfo = []
-    szPostRootName = "posts/"
-    lstDicName = os.listdir(szPostRootName)
-    for e in lstDicName :
-        if os.path.isdir(szPostRootName + e) == False :
+    szPostRootName = "posts"
+    lstParentDicName = os.listdir(szPostRootName)
+    for e1 in lstParentDicName :
+        szPath1 = f"{szPostRootName}/{e1}"
+        if os.path.isdir(szPath1) == False :
             continue
+
+        lstDicName = os.listdir(szPath1)
+        for e2 in lstDicName:
+            retVal = CreatePostInfo(szPath1, e2)
+            if retVal != None and retVal.IsValid() :
+                lstPostInfo.append(retVal)
         
-        retVal = CreatePostInfo(szPostRootName, e)
-        if retVal != None and retVal.IsValid() :
-            lstPostInfo.append(retVal)
 
     # sort by ID
     lstPostInfo = sorted(lstPostInfo, key= lambda e: e.ID, reverse=True)
@@ -86,16 +91,16 @@ def main() :
         stream.write("HammerImpact Blog Markdown Documents backup\n\n")
         nYearMonth = 0
         nMonthDay = 0
-        for e in lstPostInfo :
-            if nYearMonth != e.YearMonth :
-                nYearMonth = e.YearMonth
-                stream.write(f"# {e.YearMonth}\n\n")
+        for e1 in lstPostInfo :
+            if nYearMonth != e1.YearMonth :
+                nYearMonth = e1.YearMonth
+                stream.write(f"# {e1.YearMonth}\n\n")
             
-            if nMonthDay != e.MonthDay :
-                nMonthDay = e.MonthDay
-                stream.write(f"## {e.MonthDay}\n\n")
+            if nMonthDay != e1.MonthDay :
+                nMonthDay = e1.MonthDay
+                stream.write(f"## {e1.MonthDay}\n\n")
 
-            stream.write(f"[{e.Title}]({e.Path})\n\n")
+            stream.write(f"[{e1.Title}]({e1.Path})\n\n")
     except :
         # backup
         if os.path.exists(szFileName) :

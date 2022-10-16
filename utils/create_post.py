@@ -3,20 +3,21 @@ import os
 
 def main() :
     # post root directory
-    post_path = "posts"
+    szRootPath = "posts"
 
     # "YYYY/MM/DD/HH/MM/SS" => "YYYYMMDDHHMMSS"
     nowtime = datetime.utcnow()
-    directory_name = nowtime.strftime("%Y%m%d%H%M%S")
+    szParentName = nowtime.strftime("%Y%m%d")
+    szDirectoryName = nowtime.strftime("%Y%m%d%H%M%S")
 
     # file name
     file_name = "index.md"
 
     # create directory
-    os.mkdir("{}/{}".format(post_path, directory_name))
+    os.mkdir(f"{szRootPath}/{szParentName}/{szDirectoryName}")
 
     # create md file
-    f = open("{}/{}/{}".format(post_path, directory_name, file_name), "wt", encoding='UTF8')
+    f = open(f"{szRootPath}/{szParentName}/{szDirectoryName}/{file_name}", "wt", encoding='UTF8')
     f.write("(no_title)\n\n")
     f.write("(no_tag)\n\n")
     
