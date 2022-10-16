@@ -4,6 +4,16 @@ HammerImpact Blog Markdown Documents backup
 
 ## 1016
 
+[[에디터 확장 입문] 번역 18장 HierarchySort](posts/20221016205918/index.md)
+
+[[에디터 확장 입문] 번역 17장 Handle(핸들)](posts/20221016205435/index.md)
+
+[[에디터 확장 입문] 번역 16장 Giszmo(기즈모)](posts/20221016204933/index.md)
+
+[[에디터 확장 입문] 번역 15장 ScriptTemplates](posts/20221016203335/index.md)
+
+[[에디터 확장 입문] 번역 14장 ReorderbleList](posts/20221016202737/index.md)
+
 [[에디터 확장 입문] 번역 13장 다양한 이벤트 콜백](posts/20221016112433/index.md)
 
 [[에디터 확장 입문] 번역 12장 Undo에 대해서](posts/20221016110400/index.md)
