@@ -4,6 +4,12 @@ HammerImpact Blog Markdown Documents backup
 
 ## 1016
 
+[[에디터 확장 입문] 번역 9장 CustomEditor](posts/20221016103311/index.md)
+
+[[에디터 확장 입문] 번역 8장 MenuItem](posts/20221016102449/index.md)
+
+[[에디터 확장 입문] 번역 7장 EditorWindow](posts/20221016080618/index.md)
+
 [[에디터 확장 입문] 번역 6장 EditorGUI(EditorGUILayout)](posts/20221016074242/index.md)
 
 [[에디터 확장 입문] 번역 5장 SerializedObject에 대해서 ](posts/20221016072341/index.md)
