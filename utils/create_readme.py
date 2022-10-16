@@ -10,6 +10,7 @@ class CPostInfo :
         self.DicName = ""
         self.Path = ""
         self.YearMonth = 0
+        self.MonthDay = 0
         pass
 
     def IsValid(self) : 
@@ -31,7 +32,10 @@ def CreatePostInfo(szRoot, szDicName) :
     # Extract id, yearmonth from DicName
     try:
         retVal.ID = int(szDicName)
-        retVal.YearMonth = int(retVal.ID / 100000000) # Extract YearMonth
+        # Extract YearMonth
+        retVal.YearMonth = int(retVal.ID / 100000000) 
+        # Extract YearMonthDay - Year
+        retVal.MonthDay = int((retVal.ID - int(retVal.ID / 10000000000) * 10000000000) / 1000000)
     except ValueError:
         print(f"CreatePostInfo : DicName is not int : {szDicName}")
         return
@@ -81,11 +85,16 @@ def main() :
         
         stream.write("HammerImpact Blog Markdown Documents backup\n\n")
         nYearMonth = 0
+        nMonthDay = 0
         for e in lstPostInfo :
             if nYearMonth != e.YearMonth :
                 nYearMonth = e.YearMonth
                 stream.write(f"# {e.YearMonth}\n\n")
             
+            if nMonthDay != e.MonthDay :
+                nMonthDay = e.MonthDay
+                stream.write(f"## {e.MonthDay}\n\n")
+
             stream.write(f"[{e.Title}]({e.Path})\n\n")
     except :
         # backup
