@@ -16,7 +16,7 @@ def main() :
     os.mkdir("{}/{}".format(post_path, directory_name))
 
     # create md file
-    f = open("{}/{}/{}".format(post_path, directory_name, file_name), "w")
+    f = open("{}/{}/{}".format(post_path, directory_name, file_name), "wt", encoding='UTF8')
     f.write("(no_title)\n\n")
     f.write("(no_tag)\n\n")
     

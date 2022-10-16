@@ -42,11 +42,11 @@ def CreatePostInfo(szRoot, szDicName) :
     
     # Extract title from MD File
     try:
-        stream = open(szMDFilePath, 'r')
+        stream = open(szMDFilePath, 'rt', encoding='UTF8')
         retVal.Title = stream.readline()
         retVal.Title = retVal.Title.replace('\n', '').replace('\r','')
-    except:
-        print(f"CreatePostInfo : Failed to open MD File : {szMDFilePath}")
+    except Exception as e:
+        print(f"CreatePostInfo : Failed to open MD File : {szMDFilePath} = {e}")
         return
 
     return retVal
@@ -81,7 +81,7 @@ def main() :
         os.remove(szFileName)
     
     try :
-        stream = open(szFileName, 'w')
+        stream = open(szFileName, 'wt', encoding='UTF8')
         
         stream.write("HammerImpact Blog Markdown Documents backup\n\n")
         nYearMonth = 0
