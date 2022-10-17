@@ -21,7 +21,6 @@ class CPostInfo :
 class CPostAnalyzeContainer :
     def __init__(self) -> None:
         self.szFolderPosts = "posts"
-        self.szFolderReadme = "read_me"
         self.szFileDateMD = "links_date.md"
         self.szFileTagMD = "links_tag.md"
         self.szREADME = "README.md"
@@ -118,8 +117,8 @@ class CHelper :
     def CreateLinksTagsMD(container:CPostAnalyzeContainer) -> None :
         # file name
         szFileName = container.szFileTagMD
-        szFilePath = f"{container.szFolderReadme}/{szFileName}"
-        szFileBackupPath = f"{container.szFolderReadme}/_backup_{szFileName}"
+        szFilePath = f"{szFileName}"
+        szFileBackupPath = f"_backup_{szFileName}"
 
         # back up file
         if os.path.exists(szFileBackupPath) :
@@ -162,8 +161,8 @@ class CHelper :
     def CreateLinksDateMD(container:CPostAnalyzeContainer) -> None :
         # file name
         szFileName = container.szFileDateMD
-        szFilePath = f"{container.szFolderReadme}/{szFileName}"
-        szFileBackupPath = f"{container.szFolderReadme}/_backup_{szFileName}"
+        szFilePath = f"{szFileName}"
+        szFileBackupPath = f"_backup_{szFileName}"
 
         # back up file
         if os.path.exists(szFileBackupPath) :
