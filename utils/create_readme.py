@@ -11,6 +11,7 @@ class CPostInfo :
         self.Path = ""
         self.YearMonth = 0
         self.MonthDay = 0
+        self.Tags = [] # list<string>
         pass
 
     def IsValid(self) : 
@@ -42,11 +43,20 @@ class CHelper :
             print(f"CreatePostInfo : DicName is not int : {szDicName}")
             return
         
-        # Extract title from MD File
+        # Extract data from MD File
         try:
             stream = open(szMDFilePath, 'rt', encoding='UTF8')
+
+            # Extract title (1st line)
             retVal.Title = stream.readline()
             retVal.Title = retVal.Title.replace('\n', '').replace('\r','')
+
+            # Extract tags (3rd line)
+            stream.readline() # 2nd line pass
+            szTags = stream.readline() # 3rd line = tag strings
+            szTags = szTags.replace('\r', '').replace('\n', '') # remove invalid chars for tag
+            retVal.Tags = szTags.split('/')
+
         except Exception as e:
             print(f"CreatePostInfo : Failed to open MD File : {szMDFilePath} = {e}")
             return
@@ -97,9 +107,9 @@ class CHelper :
             stream = open(szFileName, 'wt', encoding='UTF8')
             
             stream.write("HammerImpact Blog Markdown Documents backup\n\n")
+
             nYearMonth = 0
             nMonthDay = 0
-
             for e1 in lstPostInfo :
                 if nYearMonth != e1.YearMonth :
                     nYearMonth = e1.YearMonth
