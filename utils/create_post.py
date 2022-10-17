@@ -11,7 +11,7 @@ def main() :
     szDirectoryName = nowtime.strftime("%Y%m%d%H%M%S")
 
     # file name
-    file_name = "index.md"
+    szFileName = "index.md"
 
     # create parent directory
     szRootParentPath = f"{szRootPath}/{szParentName}"
@@ -22,7 +22,7 @@ def main() :
     os.mkdir(f"{szRootPath}/{szParentName}/{szDirectoryName}")
 
     # create md file
-    f = open(f"{szRootPath}/{szParentName}/{szDirectoryName}/{file_name}", "wt", encoding='UTF8')
+    f = open(f"{szRootPath}/{szParentName}/{szDirectoryName}/{szFileName}", "wt", encoding='UTF8')
     f.write("(no_title)\n\n")
     f.write("(no_tag)\n\n")
 

@@ -11,11 +11,26 @@ class CPostInfo :
         self.Path = ""
         self.YearMonth = 0
         self.MonthDay = 0
-        self.Tags = [] # list<string>
+        self.Tags = {} # map<string>
         pass
 
     def IsValid(self) : 
         return self.ID != 0
+
+
+class CPostAnalyzeContainer :
+    def __init__(self) -> None:
+        self.szFolderPosts = "posts"
+        self.szFolderReadme = "read_me"
+        self.szFileDateMD = "links_date.md"
+        self.szFileTagMD = "links_tag.md"
+        self.szREADME = "README.md"
+
+        self.repo               = [] # list<CPostInfo>
+        self.repoYearMonth      = {} # map<string, string>
+        self.repoTags           = {} # map<string, string>
+        pass
+
 
 class CHelper :
     @staticmethod
@@ -55,7 +70,10 @@ class CHelper :
             stream.readline() # 2nd line pass
             szTags = stream.readline() # 3rd line = tag strings
             szTags = szTags.replace('\r', '').replace('\n', '') # remove invalid chars for tag
-            retVal.Tags = szTags.split('/')
+            lstTags = szTags.split('/')
+            for tag in lstTags :
+                if tag not in retVal.Tags :
+                    retVal.Tags[tag] = tag
 
         except Exception as e:
             print(f"CreatePostInfo : Failed to open MD File : {szMDFilePath} = {e}")
@@ -65,32 +83,136 @@ class CHelper :
 
 
     @staticmethod
-    def CreatePostInfoList() -> list:
-        # print directories 
-        lstPostInfo = []
-        szPostRootName = "posts"
-        lstParentDicName = os.listdir(szPostRootName)
+    def CreatePostAnalyzeContainer() -> CPostAnalyzeContainer:
+        retVal = CPostAnalyzeContainer()
+
+        # set : repo
+        lstParentDicName = os.listdir(retVal.szFolderPosts)
         for e1 in lstParentDicName :
-            szPath1 = f"{szPostRootName}/{e1}"
+            szPath1 = f"{retVal.szFolderPosts}/{e1}"
             if os.path.isdir(szPath1) == False :
                 continue
 
             lstDicName = os.listdir(szPath1)
             for e2 in lstDicName:
-                retVal = CHelper.CreatePostInfo(szPath1, e2)
-                if retVal != None and retVal.IsValid() :
-                    lstPostInfo.append(retVal)
+                pInfo = CHelper.CreatePostInfo(szPath1, e2)
+                if pInfo != None and pInfo.IsValid() :
+                    retVal.repo.append(pInfo)
+
+        # set : repoDate
+        for e in retVal.repo :
+            if e.YearMonth not in retVal.repoYearMonth :
+                retVal.repoYearMonth[e.YearMonth] = e.YearMonth
+
+        # set : repoTags
+        for e in retVal.repo :
+            for tag in e.Tags.keys() :
+                if tag not in retVal.repoTags :
+                    retVal.repoTags[tag] = tag
 
         # sort by ID
-        lstPostInfo = sorted(lstPostInfo, key= lambda e: e.ID, reverse=True)
-        return lstPostInfo
-
+        retVal.repo = sorted(retVal.repo, key= lambda e: e.ID, reverse=True)
+        return retVal
 
     @staticmethod
-    def CreateREADME(lstPostInfo:list) -> None :
+    def CreateLinksTagsMD(container:CPostAnalyzeContainer) -> None :
         # file name
-        szFileName = "README.md"
-        szFileBackupName = "_backup_README.md"
+        szFileName = container.szFileTagMD
+        szFilePath = f"{container.szFolderReadme}/{szFileName}"
+        szFileBackupPath = f"{container.szFolderReadme}/_backup_{szFileName}"
+
+        # back up file
+        if os.path.exists(szFileBackupPath) :
+            os.remove(szFileBackupPath)
+
+        if os.path.exists(szFilePath) :
+            shutil.copy(szFilePath, szFileBackupPath)
+
+        # create README.MD
+        if os.path.exists(szFilePath) :
+            os.remove(szFilePath)
+        
+        try :
+            stream = open(szFilePath, 'wt', encoding='UTF8')
+            
+            stream.write("List by tags\n\n")
+
+            for tag in container.repoTags :
+                stream.write(f"# {tag}\n\n")
+                for e in container.repo :
+                    if tag in e.Tags :
+                        stream.write(f"[{e.Title}]({e.Path})\n\n")
+
+        except :
+            # backup
+            if os.path.exists(szFilePath) :
+                os.remove(szFilePath)
+
+            if os.path.exists(szFileBackupPath) :
+                shutil.copy(szFileBackupPath, szFilePath)
+
+        # (on complete)
+        # remove backup file
+        if os.path.exists(szFileBackupPath) :
+            os.remove(szFileBackupPath)
+
+        return
+
+    @staticmethod
+    def CreateLinksDateMD(container:CPostAnalyzeContainer) -> None :
+        # file name
+        szFileName = container.szFileDateMD
+        szFilePath = f"{container.szFolderReadme}/{szFileName}"
+        szFileBackupPath = f"{container.szFolderReadme}/_backup_{szFileName}"
+
+        # back up file
+        if os.path.exists(szFileBackupPath) :
+            os.remove(szFileBackupPath)
+
+        if os.path.exists(szFilePath) :
+            shutil.copy(szFilePath, szFileBackupPath)
+
+        # create README.MD
+        if os.path.exists(szFilePath) :
+            os.remove(szFilePath)
+        
+        try :
+            stream = open(szFilePath, 'wt', encoding='UTF8')
+            
+            stream.write("Sorted by date\n\n")
+
+            nYearMonth = 0
+            nMonthDay = 0
+            for e1 in container.repo :
+                if nYearMonth != e1.YearMonth :
+                    nYearMonth = e1.YearMonth
+                    stream.write(f"# {e1.YearMonth}\n\n")
+                
+                if nMonthDay != e1.MonthDay :
+                    nMonthDay = e1.MonthDay
+                    stream.write(f"## {e1.MonthDay}\n\n")
+
+                stream.write(f"[{e1.Title}]({e1.Path})\n\n")
+        except :
+            # backup
+            if os.path.exists(szFilePath) :
+                os.remove(szFilePath)
+
+            if os.path.exists(szFileBackupPath) :
+                shutil.copy(szFileBackupPath, szFilePath)
+
+        # (on complete)
+        # remove backup file
+        if os.path.exists(szFileBackupPath) :
+            os.remove(szFileBackupPath)
+
+        return
+
+    @staticmethod
+    def CreateREADME(container:CPostAnalyzeContainer) -> None :
+        # file name
+        szFileName = container.szREADME
+        szFileBackupName = f"_backup_{szFileName}"
 
         # back up file
         if os.path.exists(szFileBackupName) :
@@ -110,7 +232,7 @@ class CHelper :
 
             nYearMonth = 0
             nMonthDay = 0
-            for e1 in lstPostInfo :
+            for e1 in container.repo :
                 if nYearMonth != e1.YearMonth :
                     nYearMonth = e1.YearMonth
                     stream.write(f"# {e1.YearMonth}\n\n")
@@ -136,8 +258,10 @@ class CHelper :
         return
 
 def main() :
-    lstPostInfo = CHelper.CreatePostInfoList()
-    CHelper.CreateREADME(lstPostInfo)
+    pAnalyzeContainer = CHelper.CreatePostAnalyzeContainer()
+    CHelper.CreateLinksTagsMD(pAnalyzeContainer)
+    CHelper.CreateLinksDateMD(pAnalyzeContainer)
+    CHelper.CreateREADME(pAnalyzeContainer)
     print("complete")
     return
 
