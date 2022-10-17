@@ -17,7 +17,7 @@ class CPostInfo :
         return self.ID != 0
     
 
-def CreatePostInfo(szRoot, szDicName) :
+def CreatePostInfo(szRoot, szDicName) -> CPostInfo :
     szPath = f"{szRoot}/{szDicName}"
     if os.path.isdir(szPath) == False :
         return
@@ -52,11 +52,8 @@ def CreatePostInfo(szRoot, szDicName) :
 
     return retVal
 
-def main() :
-    # file name
-    szFileName = "README.md"
-    szFileBackupName = "_backup_README.md"
 
+def CreatePostInfoList() -> list:
     # print directories 
     lstPostInfo = []
     szPostRootName = "posts"
@@ -71,15 +68,23 @@ def main() :
             retVal = CreatePostInfo(szPath1, e2)
             if retVal != None and retVal.IsValid() :
                 lstPostInfo.append(retVal)
-        
 
     # sort by ID
     lstPostInfo = sorted(lstPostInfo, key= lambda e: e.ID, reverse=True)
+    return lstPostInfo
+
+
+def CreateREADME(lstPostInfo:list) -> None :
+    # file name
+    szFileName = "README.md"
+    szFileBackupName = "_backup_README.md"
 
     # back up file
     if os.path.exists(szFileBackupName) :
         os.remove(szFileBackupName)
-    shutil.copy(szFileName, szFileBackupName)
+
+    if os.path.exists(szFileName) :
+        shutil.copy(szFileName, szFileBackupName)
 
     # create README.MD
     if os.path.exists(szFileName) :
@@ -91,6 +96,7 @@ def main() :
         stream.write("HammerImpact Blog Markdown Documents backup\n\n")
         nYearMonth = 0
         nMonthDay = 0
+
         for e1 in lstPostInfo :
             if nYearMonth != e1.YearMonth :
                 nYearMonth = e1.YearMonth
@@ -105,13 +111,20 @@ def main() :
         # backup
         if os.path.exists(szFileName) :
             os.remove(szFileName)
-        shutil.copy(szFileBackupName, szFileName)
+
+        if os.path.exists(szFileBackupName) :
+            shutil.copy(szFileBackupName, szFileName)
 
     # (on complete)
     # remove backup file
     if os.path.exists(szFileBackupName) :
         os.remove(szFileBackupName)
 
+    return
+
+def main() :
+    lstPostInfo = CreatePostInfoList()
+    CreateREADME(lstPostInfo)
     print("complete")
     return
 
