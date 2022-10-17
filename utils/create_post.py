@@ -13,6 +13,11 @@ def main() :
     # file name
     file_name = "index.md"
 
+    # create parent directory
+    szRootParentPath = f"{szRootPath}/{szParentName}"
+    if os.path.isdir(szRootParentPath) == False :
+        os.mkdir(f"{szRootPath}/{szParentName}")
+
     # create directory
     os.mkdir(f"{szRootPath}/{szParentName}/{szDirectoryName}")
 
@@ -20,7 +25,7 @@ def main() :
     f = open(f"{szRootPath}/{szParentName}/{szDirectoryName}/{file_name}", "wt", encoding='UTF8')
     f.write("(no_title)\n\n")
     f.write("(no_tag)\n\n")
-    
+
     return
 
 # call main
