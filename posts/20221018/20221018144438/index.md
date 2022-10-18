@@ -4,6 +4,8 @@ AI/NovelAI/번역/가이드/Image Generation/사용법
 
 2022.10.18 기준 공식 사이트 문서 번역
 
+[원본 링크](https://docs.novelai.net/)
+
 ---
 
 **5장 모델(Models)**
@@ -16,7 +18,7 @@ NovelAI Diffusion은 제한 없이 시각적 스토리텔링을 위해 설계된
 
 # NovelAI Diffusion Anime (Full)
 
-추가적인 학습 세트로 다양한 세대를 지원합니다.
+추가적인 학습 세트로 다양한 결과물을 지원합니다.
 
 # NovelAI Diffusion Furry (Beta)
 

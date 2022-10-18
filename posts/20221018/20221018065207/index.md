@@ -16,7 +16,7 @@ AI/NovelAI/번역/가이드/Image Generation/사용법
 - [1. 이미지 생성기(image generation)란?](#1-이미지-생성기image-generation란)
 - [2. 어떻게 작동하는가?](#2-어떻게-작동하는가)
 - [3. 설정 개요](#3-설정-개요)
-- [4. 일반 세대(Normal Generations)](#4-일반-세대normal-generations)
+- [4. 일반 결과물(Normal Generations)](#4-일반-결과물normal-generations)
 - [5. 이미지 업로드 / Img2Img 생성 / 새 이미지 그리기 / 이미지 편집 / 캔버스 생성](#5-이미지-업로드--img2img-생성--새-이미지-그리기--이미지-편집--캔버스-생성)
 
 
@@ -33,7 +33,7 @@ NovelAI 이미지 생성기는 Stable Diffusion에 기반하여, 우리가 자�
 
 - NovelAI Diffusion Anime (Curated) : 우수한 기본 품질과 예측 가능한 주제.
 
-- NovelAI Diffusion Anime (Full) : 추가적인 학습 세트로 다양한 세대를 지원합니다.
+- NovelAI Diffusion Anime (Full) : 추가적인 학습 세트로 다양한 결과물을 지원합니다.
 
 - NovelAI Diffusion Furry (Beta) : 털이 났고 의인화된 동물 테마 컨텐츠를 쉽게 제작할 수 있는 베타 모델입니다. 이 모델은 아직 작업중이고, 곧 추가될 것입니다.
 
@@ -58,7 +58,7 @@ NovelAI 확산 애니메이션 이미지 생셩기(Diffusion Anime image generat
 - 이미지 해상도(Image Resolution) : 다양한 종횡비와 크기로 이미지를 생성할 수 있습니다. 드롭다운 메뉴를 사용하여 당신의 비전에 가장 적합한 옵션을 선택하십시오!
 > 팁 : 높이와 너비를 빠르게 바꾸려면 해상도 숫자 사이에 있는 X를 누르세요.
 
-# 4. 일반 세대(Normal Generations)
+# 4. 일반 결과물(Normal Generations)
 
 - 단계(Steps) : AI가 미세 조정하는 반복 횟수를 정의합니다.
 - 스케일(Scale) :  AI의 프롬프트 해석 정도를 나타냅니다. 스케일이 높을 경우 AI는 더 디테일하고 선명하게 당신이 입력한 프롬프트를 따릅니다. 스케일이 낮을 경우 AI에 더 많은 창조적 자유를 줍니다.

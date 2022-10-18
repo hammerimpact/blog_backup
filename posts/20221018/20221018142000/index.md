@@ -4,6 +4,8 @@ AI/NovelAI/번역/가이드/Image Generation/사용법
 
 2022.10.18 기준 공식 사이트 문서 번역
 
+[원본 링크](https://docs.novelai.net/)
+
 ---
 
 **4장 벡터 강화(Strengthening) & 약화(Weakening)**
