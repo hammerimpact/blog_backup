@@ -2,6 +2,7 @@ from genericpath import isdir, isfile
 from operator import attrgetter
 import os
 import shutil
+from tokenize import String
 
 class CPostInfo :
     def __init__(self) -> None:
@@ -243,7 +244,9 @@ class CHelper :
             # Tags
             stream.write("# Tags\n\n")
             for tag in container.repoTags :
-                stream.write(f"[{tag}]({container.szFileTagMD}#{tag}) / ")
+                szLink = str(tag)
+                szLink = szLink.replace(' ', '-').lower()
+                stream.write(f"[{tag}]({container.szFileTagMD}#{szLink}) / ")
             stream.write("\n\n")
 
             # Date
