@@ -135,6 +135,7 @@ class CHelper :
             stream = open(szFilePath, 'wt', encoding='UTF8')
             
             stream.write("List by tags\n\n")
+            stream.write(f"[Back to README]({container.szREADME})\n\n")
 
             for tag in container.repoTags :
                 stream.write(f"# {tag}\n\n")
@@ -179,6 +180,7 @@ class CHelper :
             stream = open(szFilePath, 'wt', encoding='UTF8')
             
             stream.write("Sorted by date\n\n")
+            stream.write(f"[Back to README]({container.szREADME})\n\n")
 
             nYearMonth = 0
             nMonthDay = 0
@@ -228,19 +230,28 @@ class CHelper :
             stream = open(szFileName, 'wt', encoding='UTF8')
             
             stream.write("HammerImpact Blog Markdown Documents backup\n\n")
+            
+            # Top 10 Recent posts
+            nRecentCount = 10
+            stream.write(f"# Top {nRecentCount} recent posts\n\n")
+            nSizeMax = min(len(container.repo), nRecentCount)
+            if nSizeMax > 0 : 
+                for i in range(0, nSizeMax) :
+                    pInfo : CPostInfo = container.repo[i]
+                    stream.write(f"- [{pInfo.Title}]({pInfo.Path})\n\n")
 
-            nYearMonth = 0
-            nMonthDay = 0
-            for e1 in container.repo :
-                if nYearMonth != e1.YearMonth :
-                    nYearMonth = e1.YearMonth
-                    stream.write(f"# {e1.YearMonth}\n\n")
-                
-                if nMonthDay != e1.MonthDay :
-                    nMonthDay = e1.MonthDay
-                    stream.write(f"## {e1.MonthDay}\n\n")
+            # Tags
+            stream.write("# Tags\n\n")
+            for tag in container.repoTags :
+                stream.write(f"[{tag}]({container.szFileTagMD}#{tag}) / ")
+            stream.write("\n\n")
 
-                stream.write(f"[{e1.Title}]({e1.Path})\n\n")
+            # Date
+            stream.write("# YearMonth\n\n")
+            for ym in container.repoYearMonth :
+                stream.write(f"- [{ym}]({container.szFileDateMD}#{ym})\n\n")
+            stream.write("\n\n")
+            
         except :
             # backup
             if os.path.exists(szFileName) :
