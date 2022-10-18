@@ -10,6 +10,8 @@ List by tags
 
 # 번역
 
+[NovelAI 이미지 생성기 공식 가이드 문서 번역 13장 FAQ](posts/20221018/20221018215719/index.md)
+
 [NovelAI 이미지 생성기 공식 가이드 문서 번역 12장 향상](posts/20221018/20221018170748/index.md)
 
 [NovelAI 이미지 생성기 공식 가이드 문서 번역 11장 시드](posts/20221018/20221018170529/index.md)
@@ -228,6 +230,8 @@ List by tags
 
 # AI
 
+[NovelAI 이미지 생성기 공식 가이드 문서 번역 13장 FAQ](posts/20221018/20221018215719/index.md)
+
 [NovelAI 이미지 생성기 공식 가이드 문서 번역 12장 향상](posts/20221018/20221018170748/index.md)
 
 [NovelAI 이미지 생성기 공식 가이드 문서 번역 11장 시드](posts/20221018/20221018170529/index.md)
@@ -253,6 +257,8 @@ List by tags
 [NovelAI 이미지 생성기 공식 가이드 문서 번역 1장 서문](posts/20221018/20221018065207/index.md)
 
 # NovelAI
+
+[NovelAI 이미지 생성기 공식 가이드 문서 번역 13장 FAQ](posts/20221018/20221018215719/index.md)
 
 [NovelAI 이미지 생성기 공식 가이드 문서 번역 12장 향상](posts/20221018/20221018170748/index.md)
 
@@ -280,6 +286,8 @@ List by tags
 
 # 가이드
 
+[NovelAI 이미지 생성기 공식 가이드 문서 번역 13장 FAQ](posts/20221018/20221018215719/index.md)
+
 [NovelAI 이미지 생성기 공식 가이드 문서 번역 12장 향상](posts/20221018/20221018170748/index.md)
 
 [NovelAI 이미지 생성기 공식 가이드 문서 번역 11장 시드](posts/20221018/20221018170529/index.md)
@@ -306,6 +314,8 @@ List by tags
 
 # Image Generation
 
+[NovelAI 이미지 생성기 공식 가이드 문서 번역 13장 FAQ](posts/20221018/20221018215719/index.md)
+
 [NovelAI 이미지 생성기 공식 가이드 문서 번역 12장 향상](posts/20221018/20221018170748/index.md)
 
 [NovelAI 이미지 생성기 공식 가이드 문서 번역 11장 시드](posts/20221018/20221018170529/index.md)
@@ -331,6 +341,8 @@ List by tags
 [NovelAI 이미지 생성기 공식 가이드 문서 번역 1장 서문](posts/20221018/20221018065207/index.md)
 
 # 사용법
+
+[NovelAI 이미지 생성기 공식 가이드 문서 번역 13장 FAQ](posts/20221018/20221018215719/index.md)
 
 [NovelAI 이미지 생성기 공식 가이드 문서 번역 12장 향상](posts/20221018/20221018170748/index.md)
 

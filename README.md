@@ -2,6 +2,8 @@ HammerImpact Blog Markdown Documents backup
 
 # Top 10 recent posts
 
+- [NovelAI 이미지 생성기 공식 가이드 문서 번역 13장 FAQ](posts/20221018/20221018215719/index.md)
+
 - [NovelAI 이미지 생성기 공식 가이드 문서 번역 12장 향상](posts/20221018/20221018170748/index.md)
 
 - [NovelAI 이미지 생성기 공식 가이드 문서 번역 11장 시드](posts/20221018/20221018170529/index.md)
@@ -19,8 +21,6 @@ HammerImpact Blog Markdown Documents backup
 - [NovelAI 이미지 생성기 공식 가이드 문서 번역 5장 모델](posts/20221018/20221018144438/index.md)
 
 - [NovelAI 이미지 생성기 공식 가이드 문서 번역 4장 벡터 강화 & 약화](posts/20221018/20221018142000/index.md)
-
-- [NovelAI 이미지 생성기 공식 가이드 문서 번역 3장 태깅](posts/20221018/20221018141102/index.md)
 
 # Tags
 
