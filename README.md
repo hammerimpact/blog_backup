@@ -2,6 +2,14 @@ HammerImpact Blog Markdown Documents backup
 
 # Top 10 recent posts
 
+- [NovelAI 이미지 생성기 공식 가이드 문서 번역 17장 디버그 설정](posts/20221018/20221018231727/index.md)
+
+- [NovelAI 이미지 생성기 공식 가이드 문서 번역 16장 고급 : UI 기능](posts/20221018/20221018230603/index.md)
+
+- [NovelAI 이미지 생성기 공식 가이드 문서 번역 15장 샘플링 방식](posts/20221018/20221018230424/index.md)
+
+- [NovelAI 이미지 생성기 공식 가이드 문서 번역 14장 고급 : 프롬프트 혼합](posts/20221018/20221018224545/index.md)
+
 - [NovelAI 이미지 생성기 공식 가이드 문서 번역 13장 FAQ](posts/20221018/20221018215719/index.md)
 
 - [NovelAI 이미지 생성기 공식 가이드 문서 번역 12장 향상](posts/20221018/20221018170748/index.md)
@@ -13,14 +21,6 @@ HammerImpact Blog Markdown Documents backup
 - [NovelAI 이미지 생성기 공식 가이드 문서 번역 9장 강도 & 노이즈](posts/20221018/20221018165556/index.md)
 
 - [NovelAI 이미지 생성기 공식 가이드 문서 번역 8장 단계](posts/20221018/20221018164750/index.md)
-
-- [NovelAI 이미지 생성기 공식 가이드 문서 번역 7장 새 이미지를 그리기](posts/20221018/20221018152102/index.md)
-
-- [NovelAI 이미지 생성기 공식 가이드 문서 번역 6장 이미지 업로드 Img2Img2 Generation](posts/20221018/20221018144824/index.md)
-
-- [NovelAI 이미지 생성기 공식 가이드 문서 번역 5장 모델](posts/20221018/20221018144438/index.md)
-
-- [NovelAI 이미지 생성기 공식 가이드 문서 번역 4장 벡터 강화 & 약화](posts/20221018/20221018142000/index.md)
 
 # Tags
 
