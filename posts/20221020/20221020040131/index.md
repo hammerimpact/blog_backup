@@ -115,7 +115,7 @@ RealESRGAN/ESRGAN을 사용하여 이미지를 업스케일링(upscale)하고 �
 
 - <code>a (word)</code> : word에 대한 주의를 1.1배로 높입니다.
 - <code>a ((word))</code> : word에 대한 주의를 1.21(= 1.1 * 1.1)배로 높입니다.
-- <code>a [word]</code> : 에 대한 주의 저하word1.1배로
+- <code>a [word]</code> : word에 대한 주의 저하word1.1배로
 - <code>a (word:1.5)</code> : 주의를 높이다word1.5배로
 - <code>a (word:0.25)</code> : 에 대한 주의 저하word4의 인수(= 1 / 0.25)만큼
 - <code>a \(word\)</code> : 리터럴 사용()프롬프트 문자
