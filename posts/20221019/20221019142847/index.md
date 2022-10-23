@@ -5,13 +5,13 @@ AI/WebAI/StableDiffusion/사용법
 
 
 목차
-- [설치와 실행](#설치와-실행)
+- [통합팩 설치와 실행](#통합팩-설치와-실행)
 - [참고자료](#참고자료)
 
 
 
 
-# 설치와 실행
+# 통합팩 설치와 실행
 - [아카라이브 AI 그림 채널 통합팩 게시글 링크](https://arca.live/b/aiart/60216616)
 
 - "필수 설치파일"의 WEBUI.zip 을 웹 링크를 통해서 다운로드받습니다. 설치.ps1 (PowerShell) 실행해서 설치했습니다. 
@@ -36,3 +36,5 @@ AI/WebAI/StableDiffusion/사용법
 [AUTOMATIC1111의 WEB UI Github 위키](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki)
 
 [SD RESOURCE GOLDMINE](https://rentry.org/sdupdates)
+
+[Hugging Fate(SD 모델 파일 배포처)](https://huggingface.co/)

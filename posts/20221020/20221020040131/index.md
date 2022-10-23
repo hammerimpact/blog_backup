@@ -8,13 +8,54 @@ AI/WebUI/Stable Diffusion/
 **1장 기능(Features)**
 
 목차
-
+- [Outpainting](#outpainting)
+- [Inpainting](#inpainting)
+  - [Inpainting 모델](#inpainting-모델)
+  - [마스크 콘텐츠 (Masked content)](#마스크-콘텐츠-masked-content)
+  - [최대 해상도에서 inpaint](#최대-해상도에서-inpaint)
+  - [마스크 모드 (Masking mode)](#마스크-모드-masking-mode)
+  - [알파 마스크(Alpha mask)](#알파-마스크alpha-mask)
+- [프롬프트 매트릭스(Prompt matrix)](#프롬프트-매트릭스prompt-matrix)
+- [컬러 스케치(Color Sketch)](#컬러-스케치color-sketch)
+- [Stable Diffusion 이미지 업스케일링(upscale)](#stable-diffusion-이미지-업스케일링upscale)
+- [주의(Attention) / 강조(Emphasis)](#주의attention--강조emphasis)
+- [루프백](#루프백)
+- [X/Y 플롯](#xy-플롯)
+  - [프롬프트 S/R](#프롬프트-sr)
+- [텍스트 반전(Texture Inversion)](#텍스트-반전texture-inversion)
+- [크기 조정(Resizing)](#크기-조정resizing)
+- [샘플링 방법 선택(Sampling method selection)](#샘플링-방법-선택sampling-method-selection)
+- [시드 크기 조정(Seed resize)](#시드-크기-조정seed-resize)
+- [변형(Variations)](#변형variations)
+- [스타일(Styles)](#스타일styles)
+- [부정적인 프롬프트(Negative prompt)](#부정적인-프롬프트negative-prompt)
+- [CLIP 인터로게이터 (CLIP interrogator)](#clip-인터로게이터-clip-interrogator)
+- [프롬프트 편집](#프롬프트-편집)
+  - [대체 단어](#대체-단어)
+- [고해상도 수정(Highres. fix)](#고해상도-수정highres-fix)
+- [중지(Interrupt)](#중지interrupt)
+- [4GB 비디오 카드 지원(4GB videocard support)](#4gb-비디오-카드-지원4gb-videocard-support)
+- [얼굴 복원(Face restoration)](#얼굴-복원face-restoration)
+- [저장(Saving)](#저장saving)
+- [로딩 중(Loading)](#로딩-중loading)
+- [프롬프트 검증(Prompt validation)](#프롬프트-검증prompt-validation)
+- [PNG 정보](#png-정보)
+- [설정](#설정)
+- [파일 이름 형식(FileNames Format)](#파일-이름-형식filenames-format)
+- [사용자 스크립트(User scripts)](#사용자-스크립트user-scripts)
+- [UI 구성(UI Config)](#ui-구성ui-config)
+- [ESRGAN](#esrgan)
+- [img2img 대체 테스트](#img2img-대체-테스트)
+- [user.css](#usercss)
+- [notification.mp3](#notificationmp3)
+- [조정(Tweaks)](#조정tweaks)
+  - [CLIP 모델의 마지막 레이어 무시](#clip-모델의-마지막-레이어-무시)
 
 이것은 Stable Diffusion Web UI의 기능 쇼케이스 페이지입니다.
 
 # Outpainting
 
-페인팅은 원래 이미지를 확장하고, 생성된 빈 공간을 보완합니다.
+Outpainting은 원래 이미지를 확장하고, 생성된 빈 공간을 보완(inpaint)합니다.
 
 예:
 ![](2022-10-20-13-05-26.png)
@@ -23,7 +64,7 @@ AI/WebUI/Stable Diffusion/
 
 이 기능은 하단의 "img2img" 탭에서 "Script" -> "Poor man's outprinting" 아래에 있습니다.
 
-Outpainting 은 일반 이미지 생성과 다르게, 단계 카운트(Step Count)가 크면 클수록 많은 이익을 얻을 수 있습니다. 좋은 Outpainting을 위한 레시피에는 그림과 매칭되는 적절한 프롬프트, 최대값으로 설정된 노이즈 제거(Denoising) 및 CFG 스케일(Scale) 슬라이더, 그리고 단계 카운트(Step Count) 50~100, 오일러 조상(Euler Ancestral) 또는 DPM2 조상 샘플러(Ancestral samplers)가 필요하다.
+Outpainting은 일반 이미지 생성과 다르게, 단계 카운트(Step Count)가 크면 클수록 많은 이익을 얻을 수 있습니다. 좋은 Outpainting을 위한 레시피에는 그림과 매칭되는 적절한 프롬프트, 최대값으로 설정된 노이즈 제거(Denoising) 및 CFG 스케일(Scale) 슬라이더, 그리고 단계 카운트(Step Count) 50~100, 오일러 조상(Euler Ancestral) 또는 DPM2 조상 샘플러(Ancestral samplers)가 필요하다.
 
 ![](2022-10-20-13-06-09.png)
 
@@ -39,6 +80,14 @@ inpainting을 위한 옵션들 :
 - 웹 에디터에서 직접 마스크를 그립니다.
 - 외부 에디터에서 사진의 일부를 지우고 투명한 사진을 업로드합니다. 조금이라도 투명한 영역은 마스크의 일부가 됩니다. 일부 에디터는 기본 설정으로 완전히 투명한 영역을 검은색으로 저장한다는 것을 주의해주세요.
 - 모드(사진 오른쪽 아래)를 "마스크 업로드(Upload mask)"로 변경하고, 별도로 준비된 마스크용 흑백 이미지를 선택합니다(흰색 = inpaint 대상).
+
+## Inpainting 모델
+
+RunwayML은 Inpainting을 위해 특별히 설계된 추가 모델을 훈련했습니다. 이 모델은 추가 입력(노이즈와 마스크가 없는 초기 이미지)을 허용하며 작업에서 훨씬 더 나은 것 같습니다. 모델에 대한 다운로드 및 추가 정보는 여기를 참고해주세요 : https://github.com/runwayml/stable-diffusion#inpainting-with-stable-diffusion
+
+모델을 사용하려면 파일 이름이 inpainting.ckpt로 끝나도록 체크포인트의 이름을 바꿔야 합니다(예: 1.5-inpainting.ckpt). 
+
+그런 다음 보통 체크포인트를 선택하는 것처럼 체크포인트를 선택하면 됩니다.
 
 ## 마스크 콘텐츠 (Masked content)
 마스크 컨텐츠(Masked content) 필드에 기입한 내용은, inpaint 작업하기 전에 마스크된 영역에 채워넣을 내용을 결정합니다.
@@ -168,7 +217,7 @@ img2img에서 루프백 스크립트를 선택함으로써, 결과물 이미지�
 
 ![](2022-10-20-13-09-32.png)
 
-# 프롬프트 S/R
+## 프롬프트 S/R
 
 프롬프트 S/R은 X/Y 플롯의 작동 모드에서 이해하기 어려운 것들 중 하나입니다. S/R은 검색(Search)/교체(Replace)를 의미하며, 그 의미 그대로의 일들을 실행합니다. 단어 또는 문구의 목록을 입력하면, 목록에서 첫 번째 항목을 검색해서 이를 키워드로 취급하고, 해당 키워드의 모든 인스턴스들을 목록의 다른 항목으로 교체합니다.
 
@@ -271,7 +320,7 @@ CLIP 인터로게이터는 두 부분으로 구성됩니다. 하나는 그림에
 - <code>Interrogate: maximum descripton length</code> : BLIP 모델 텍스트의 최대 길이
 - <code>Interrogate: maximum number of lines in text file</code> : 인터로게이터는 파일에서 이 수많은 첫 번째 줄만 고려합니다. 0으로 설정하면 기본값은 1500으로 4GB 비디오 카드가 처리할 수 있는 정도입니다.
 
-## 프롬프트 편집
+# 프롬프트 편집
 
 ![](2022-10-20-13-10-41.png)
 
@@ -380,7 +429,7 @@ GFPGAN 또는 CodeFormer를 사용하여 사진의 얼굴을 개선할 수 있�
 
 ![](2022-10-20-13-11-47.png)
 
-# 절약(Saving)
+# 저장(Saving)
 
 출력 섹션(output section)에서 저장 버튼을 클릭하면 생성된 이미지가 설정에 지정된 디렉토리에 저장됩니다. 생성 매개변수는 동일한 디렉토리의 csv 파일에 추가됩니다.
 
