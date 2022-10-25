@@ -74,6 +74,8 @@ class CHelper :
             for tag in lstTags :
                 if tag not in retVal.Tags :
                     retVal.Tags[tag] = tag
+            
+            stream.close()
 
         except Exception as e:
             print(f"CreatePostInfo : Failed to open MD File : {szMDFilePath} = {e}")
@@ -143,6 +145,8 @@ class CHelper :
                 for e in container.repo :
                     if tag in e.Tags :
                         stream.write(f"[{e.Title}]({e.Path})\n\n")
+            
+            stream.close()
 
         except :
             # backup
@@ -195,6 +199,8 @@ class CHelper :
                     stream.write(f"## {e1.MonthDay}\n\n")
 
                 stream.write(f"[{e1.Title}]({e1.Path})\n\n")
+
+            stream.close()
         except :
             # backup
             if os.path.exists(szFilePath) :
@@ -254,6 +260,7 @@ class CHelper :
             for ym in container.repoYearMonth :
                 stream.write(f"- [{ym}]({container.szFileDateMD}#{ym})\n\n")
             stream.write("\n\n")
+            stream.close()
             
         except :
             # backup

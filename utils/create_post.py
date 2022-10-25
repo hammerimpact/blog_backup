@@ -25,7 +25,8 @@ def main() :
     f = open(f"{szRootPath}/{szParentName}/{szDirectoryName}/{szFileName}", "wt", encoding='UTF8')
     f.write("(no_title)\n\n")
     f.write("(no_tag)\n\n")
-
+    f.close()
+    
     return
 
 # call main
