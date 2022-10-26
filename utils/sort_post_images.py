@@ -10,6 +10,7 @@ class CMDImageData :
     def __init__(self) -> None:
         self.nLineIndex = -1
         self.szLine = ""
+        self.szFileName = ""
         self.szExt = ""
         pass
 
@@ -67,16 +68,21 @@ class CHelper :
 
             if bIsImageLine == False :
                 continue
+
+            szFileName = szLine
+            for e2 in ["![]", "(", ")"] :
+                szFileName = szFileName.replace(e2, "")
             
             # Add CMDImageData
             pData = CMDImageData()
             pData.nLineIndex = i
             pData.szLine = szLine
+            pData.szFileName = szFileName
             pData.szExt = szExt
             mgr.MDImageDataRepo.append(pData)
 
             # Add Log
-            print(f"Add CMDImageData : Line {pData.nLineIndex} - {pData.szLine}")
+            print(f"Add CMDImageData : Line {pData.nLineIndex} - {pData.szLine} - {pData.szFileName}")
         
         print(f"CMDImageData Count : {len(mgr.MDImageDataRepo)}")
         return 0
@@ -108,7 +114,6 @@ class CHelper :
             # Add Log
             print(f"Find CFolderImageData : {pData.szFileName}")
         
-
         print(f"CFolderImageData Count : {len(mgr.FolderImageDataRepo)}")
         return 0
 
