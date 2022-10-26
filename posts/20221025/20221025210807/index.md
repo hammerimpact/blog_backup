@@ -3,40 +3,70 @@ Web UI 관련 모델 모음
 AI/WebAI/StableDiffusion/모델/
 
 목차
+- [현재 보유중 모델 목록과 hash값](#현재-보유중-모델-목록과-hash값)
+- [Stable Diffusion(SD)](#stable-diffusionsd)
+- [NAI 유출 모델](#nai-유출-모델)
+  - [animefull-final-pruned](#animefull-final-pruned)
+- [Waifu Diffusion(WD)](#waifu-diffusionwd)
+  - [wd-v1-3-float16](#wd-v1-3-float16)
+- [Trinart stable diffusion(Trinart)](#trinart-stable-diffusiontrinart)
+  - [trinart2_step115000](#trinart2_step115000)
+  - [trinart_characters_it4_v1](#trinart_characters_it4_v1)
+- [Zeipher F111 Female Nude(F111)](#zeipher-f111-female-nudef111)
+- [모델 병합](#모델-병합)
+  - [NAI 0.8 + Trinart 0.2](#nai-08--trinart-02)
+  - [NAI 0.8 + F111 0.2](#nai-08--f111-02)
+  - [WD 0.5 + Trinart 0.5](#wd-05--trinart-05)
+- [외부 링크](#외부-링크)
 
+# 현재 보유중 모델 목록과 hash값
+![](2022-10-26-20-43-52.png)
 
 # Stable Diffusion(SD)
+hash : 81761151
+
+[배포 링크(huggingface)](https://huggingface.co/blog/stable_diffusion)
+
+앞으로 설명될 모든 모델들의 근본이다.
 
 
 # NAI 유출 모델
 
 ## animefull-final-pruned
-
+hash : 17e91ca0
 
 
 # Waifu Diffusion(WD)
 
 ## wd-v1-3-float16
+hash : 84692140
 
-
+[배포처 링크(github)](https://gist.github.com/harubaru/f727cedacae336d1f7877c4bbe2196e1)
 
 
 # Trinart stable diffusion(Trinart)
 
 ## trinart2_step115000
+hash : f1c7e952
+
+[배포처 링크(huggingface)](https://huggingface.co/naclbit/trinart_stable_diffusion_v2)
 
 
 ## trinart_characters_it4_v1
+hash : d64dab7f
 
+[배포처 링크(huggingface)](https://huggingface.co/naclbit/trinart_characters_19.2m_stable_diffusion_v1)
 
 
 # Zeipher F111 Female Nude(F111)
+hash : 7eac8788
 
-
+[배포처 링크](https://ai.zeipher.com/)
 
 # 모델 병합
 
 ## NAI 0.8 + Trinart 0.2
+hash : 45a4bfe3
 
 animefull-final-pruned_0.8-trinart2_step115000_0.2-Weighted_sum-merged.ckpt
 
@@ -60,6 +90,7 @@ Denoising strength: 0.6
 
 
 ## NAI 0.8 + F111 0.2
+hash : 17e91ca0
 
 [AIBooru 글](https://aibooru.online/posts/2738?q=realistic)
 
@@ -79,6 +110,7 @@ Steps: 40, Sampler: DDIM, CFG scale: 11, Seed: 842505225, Size: 512x768, Model h
 
 
 ## WD 0.5 + Trinart 0.5
+hash : 07c44ea4
 
 wd-v1-3-float16_0.5-trinart2_step115000_0.5-Weighted_sum-merged.ckpt
 
