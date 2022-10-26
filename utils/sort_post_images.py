@@ -1,3 +1,6 @@
+from ast import Break
+from bisect import bisect_right
+from http.client import CONTINUE
 import string
 import sys
 import os
@@ -5,18 +8,22 @@ import platform
 
 class CMDImageData :
     def __init__(self) -> None:
+        self.nLineIndex = -1
+        self.szLine = ""
+        self.szExt = ""
         pass
 
 class CFolderImageData :
     def __init__(self) -> None:
+        self.szFileName = ""
         pass
 
 class CMainDataManager :
     def __init__(self) -> None:
         self.szRootPath = ""
-        self.MDImageDataRepo = []
-        self.FolderImageDataRepo = []
-        self.LogRepo = []
+        self.MDImageDataRepo = [] # list<CMDImageData>
+        self.FolderImageDataRepo = [] # list<CFolderImageData>
+        self.ImageExtRepo = [".png", ".jpg", ".gif", ".jpeg", ".webp"]
         pass
 
 class CHelper :
@@ -26,25 +33,86 @@ class CHelper :
         return
     
     @staticmethod
-    def CreateMDImageDataRepo(mgr :CMainDataManager) -> int:
-        lstLines = []
+    def CreateMDImageDataRepo(mgr : CMainDataManager) -> int:
+        szFileText = ""
         try:
             stream = open(mgr.szRootPath, 'rt', encoding='UTF8')
-            lstLines = stream.read()
+            szFileText = stream.read()
             stream.close()
         except Exception as e:
             print(f"CreateMDImageDataRepo : Failed to open MD File : {mgr.szRootPath} = {e}")
             return -1
 
+        lstLines = szFileText.split('\n')
 
+        i = -1
+        # loop for MDImageData
         for e in lstLines :
-            szText = str(e)
-            if szText.find("![]") < 0 :
+            if i == -1  : i = 0
+            else        : i += 1
+
+            szLine = str(e)
+            if szLine.find("![") < 0 :
                 continue
 
-            
+            bIsImageLine = False
+            szExt = ""
+            for ext in mgr.ImageExtRepo :
+                if szLine.find(ext) < 0 :
+                    continue
 
+                bIsImageLine = True
+                szExt = ext
+                break
+
+            if bIsImageLine == False :
+                continue
+            
+            # Add CMDImageData
+            pData = CMDImageData()
+            pData.nLineIndex = i
+            pData.szLine = szLine
+            pData.szExt = szExt
+            mgr.MDImageDataRepo.append(pData)
+
+            # Add Log
+            print(f"Add CMDImageData : Line {pData.nLineIndex} - {pData.szLine}")
+        
+        print(f"CMDImageData Count : {len(mgr.MDImageDataRepo)}")
         return 0
+
+    @staticmethod
+    def CreateFolderImageData(mgr : CMainDataManager) -> int :
+        # print(os.path.dirname(mgr.szRootPath))
+        szDirPath = os.path.dirname(mgr.szRootPath)
+
+        lstFiles = os.listdir(szDirPath)
+        for e in lstFiles :
+            szFile = str(e)
+
+            bIsImageFile = False
+            for ext in mgr.ImageExtRepo :
+                if szFile.find(ext) < 0 :
+                    continue
+                bIsImageFile = True
+                break
+            
+            if bIsImageFile == False :
+                continue
+
+            # Add CFolderImageData
+            pData = CFolderImageData()
+            pData.szFileName = szFile
+            mgr.FolderImageDataRepo.append(pData)
+
+            # Add Log
+            print(f"Find CFolderImageData : {pData.szFileName}")
+        
+
+        print(f"CFolderImageData Count : {len(mgr.FolderImageDataRepo)}")
+        return 0
+
+    
     
 
 def main() :
@@ -67,9 +135,9 @@ def main() :
     # 1. MD 파일을 분석한다
     # ---(MD 파일 닫기)---
 
-    # 2. MD 파일에서 이미지 줄을 찾고 이미지 정보 목록을 만든다 (+ 로그)
-    # 3. MD 파일이 위치한 폴더 안에 있는 이미지 파일들(png, gif, jpg 등)의 목록을 만든다 (+ 로그)
-    # 4. MD 파일에서 사용되지 않는 폴더 안 이미지 파일들을 삭제한다 (+ 로그)
+    # 2. MD 파일에서 이미지 줄을 찾고 이미지 정보 목록을 만든다 
+    # 3. MD 파일이 위치한 폴더 안에 있는 이미지 파일들(png, gif, jpg 등)의 목록을 만든다 
+    # 4. MD 파일에서 사용되지 않는 폴더 안 이미지 파일들을 삭제한다 
     # 4-1. 삭제할 파일들은 모아서 임시 압축 파일로 압축해둔다. 
 
     # ---(MD 파일 오픈)---
@@ -84,7 +152,9 @@ def main() :
     if retVal != 0 :
         return retVal
 
-
+    retVal = CHelper.CreateFolderImageData(mgr)
+    if retVal != 0 :
+        return retVal
 
     return 0
 
