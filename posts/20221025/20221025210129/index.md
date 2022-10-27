@@ -28,6 +28,7 @@ AI/WebAI/StableDiffusion/참고자료/프롬프트/
 - [참고자료](#참고자료)
 
 
+[원본 주소](https://arca.live/b/aiart/61501508)
 
 # 프롬프트의 구조
 
