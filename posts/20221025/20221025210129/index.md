@@ -5,18 +5,18 @@ AI/WebAI/StableDiffusion/참고자료/프롬프트/
 목차
 
 - [표준 삼단술식의 기초 논리](#표준-삼단술식의-기초-논리)
-  - [접두어(prefix)](#접두어prefix)
-  - [주체](#주체)
-  - [풍경 (빛의 효과)](#풍경-빛의-효과)
+  - [접두어](#접두어)
+    - [기본 접두어](#기본-접두어)
+    - [화풍 결정 단어](#화풍-결정-단어)
+    - [화면 효과 단어](#화면-효과-단어)
   - [주체(화면상의 본체 부분)](#주체화면상의-본체-부분)
-  - [장면(배경, 환경)](#장면배경-환경)
-    - [환경 어휘](#환경-어휘)
-    - [배경 어휘](#배경-어휘)
-  - [가중통제](#가중통제)
-  - [다중가중통제](#다중가중통제)
-  - [문장 강화](#문장-강화)
-  - [다중강화](#다중강화)
-  - [융합](#융합)
+  - [풍경(배경, 환경)](#풍경배경-환경)
+  - [주체와 풍경의 비율](#주체와-풍경의-비율)
+    - [가중치 조절](#가중치-조절)
+    - [여러 프롬프트 가중치 조절](#여러-프롬프트-가중치-조절)
+    - [문장 강화](#문장-강화)
+    - [다중 강화](#다중-강화)
+    - [융합](#융합)
   - [넓은 의미의 삼단술식 구조](#넓은-의미의-삼단술식-구조)
 - [현려술 구성 논리](#현려술-구성-논리)
   - [주의사항](#주의사항)
@@ -44,6 +44,7 @@ AI/WebAI/StableDiffusion/참고자료/프롬프트/
   - [실제 사례](#실제-사례)
     - [예 1 (장미법 장면)](#예-1-장미법-장면)
     - [예 2 (모리화법 장면)](#예-2-모리화법-장면)
+    - [예 3 (미즈모리법 장면)](#예-3-미즈모리법-장면)
 - [프롬프트 모음](#프롬프트-모음)
   - [메인 프롬프트](#메인-프롬프트)
     - [통합팩 기본 메인 프롬프트](#통합팩-기본-메인-프롬프트)
@@ -57,125 +58,117 @@ AI/WebAI/StableDiffusion/참고자료/프롬프트/
 
 # 표준 삼단술식의 기초 논리
 
-접두어 + 주체 + 풍경 (+ 접미어)
+**접두어 + 주체 + 풍경 (+ 접미어)**
 
-## 접두어(prefix)
-기본 그림의 품질을 강조하는 단어
+## 접두어
 
+접두어 부분은 아래 3가지 종류를 합쳐 부르는 말이다.
+
+1. 기본 접두어
+2. 화풍 결정 단어
+3. 화면 효과 단어 
+
+이미지의 전체적인 느낌을 정의해서 퀄리티를 향상시키는 역할이다.
+
+### 기본 접두어
+이미지의 퀄리티를 강조.
 - masterpiece
 - bestquality
+- 등등
 
-등등
+### 화풍 결정 단어
+이미지의 화풍을 강조.
+- illustration : 일러스트 
+- watercolor_medium : 수채화
+- impasto : 임파스토. 유화의 기법 중 하나
+- 등등
 
-## 주체 
-그림의 이미지를 부각시키는 화풍
-
-- 일러스트 illustration
-- 수채화 watercolor_medium
-- 두껍게 바르다 impasto
-
-등등
-
-## 풍경 (빛의 효과)
-
-- 광채 bestlighting
-- 경심 lensflare 
-- Depth of field
-
-등등
+### 화면 효과 단어
+빛이나 이미지 화면 전체에 적용되는 효과 관련.
+- bestlighting
+- lensflare : 렌즈 플레어 
+- Depthoffield : 피사계 심도(Depth of field). 카메라 초점을 중심으로 그 뒤로는 흐릿해지는 효과.
+- 등등
 
 ## 주체(화면상의 본체 부분)
 
-본체는 그림이 부각하려는 주체로 인물, 건축, 경물 등 다양한 주체를 묘사해야 디테일이 풍부한 그림을 얻을 수 있다.
+본체는 그림이 부각하려는 주체로, 인물, 건축물, 배경물 등을 말한다. 다양한 주체를 묘사함으로써 디테일이 풍부한 그림을 얻을 수 있다.
 
-주제 부분은 세세하게 묘사해야 구체화된다.우리는 보통 주체를 구체화하여 그림의 선명도를 높인다. 
+**주제 부분은 세세하게 묘사해야 구체화된다. 보통 우리는 주체 부분의 단어들에 가중치를 줘서 그림의 선명도를 높인다.**
 
-캐릭터의 경우, 얼굴, 머리카락, 몸, 옷차림, 자세 등의 묘사가 대부분이다.
+캐릭터의 경우, 보통 얼굴, 머리카락, 몸, 옷차림, 자세 등의 묘사가 포함된다.
 
 캐릭터가 없을 때는 장면의 중요한 점, 즉 구름처럼 높이 솟은 성, 피어나는 꽃, 부서진 시계 등 화면의 중심에 있는 물체를 묘사한다.
 
+## 풍경(배경, 환경)
 
-## 장면(배경, 환경)
+풍경은 주체가 존재하는 주변 풍경을 말하고, 풍경 묘사가 없을 때는 단색 배경이거나, 효과 태그(tag)와 연관있는 풍경이 만들어지기 쉽고, 주체가 크게 보이게 만들어질 수 있다. 일부 주체는 그 자체가 풍경을 의미하기도 하는데, 건축물 혹은 배경물 등이 그렇다.
 
-### 환경 어휘
+**단독 환경 어휘는 본체 주변과 함께 화면 전체의 풍경을 가득 채우는 장면을 형성한다.**
 
-화면과 주변을 둘러싸고 있는 모습의 총칭.
+- flowerymeadow : 화초가 무성한 습지
+- feather : 깃털 
+- sunlight : 햇빛 
+- river : 강
+- Broken glass : 깨진 유리
+- 등등
 
-- 화초밭과 같다 flowery meadow
-- 깃털 feather
-- 햇빛 sunlight 
-- 하류 river
-- 깨진 유리Broken glass
+환경 어휘는 겹겹이 쌓아주면 풍경이 풍부해지는데, 주체에 대한 내용이 너무 적으면 안된다.
 
-등등
+**배경 어휘는 환경 어휘의 뒤에 background 를 추가한 것**으로, 예를들면 clockbackground 같은 묘사는 주체의 배후에 배경 어휘가 안정적으로 나타나게 해준다.
 
-### 배경 어휘
+clockbackground
 
-배경이 인물의 배후에 있게 도와주는 어휘.
+![](2022-10-29-05-04-12.png)
 
-- clock background
+접미사는 보통 화면 효과 단어와 유사하게 풍경을 풍부하게 하는데 사용된다. 예를들면 깃털, 섬광, 별 등이 그렇다.
 
-접미사는 보통 효과기와 유사하게 깃털, 섬광, 별 등 장면을 풍부하게 하는 데 사용된다.
+접두사 끝에 있는 화면 효과 단어에 접미사를 썼을때, 만약 주체의 묘사가 적다면, 풍경의 가중치가 너무 커져서 주체가 실종되는 결과를 낳는다.
 
-접두사 효과기에 본체를 너무 적게 묘사하면 장면 쪽의 비중이 너무 커져 본체가 깨지기 시작한다.
+## 주체와 풍경의 비율
 
+주체와 풍경의 가중치를 조절함으로써 주체의 크기와 비중을 조절할 수 있다. 그 외에도 주체를 수식함으로써 주체의 표시 범위를 조절할 수 있는데, 사람에 대한 표현은 제2장의 인물 촬영 관계 란에서 볼 수 있다.
 
+### 가중치 조절
 
-## 가중통제
+**가중치 조절은 매우 중요한 부분이고, 이건 당신이 그리고 싶은 것이 AI의 주의(Attention)를 얻을 수 있느냐 없느냐와 관련 있는 부분이다.**
 
-- 프롬프트는 앞에 있을수록 강하게 작용한다.
-- 가중통제는 프롬프트에 괄호를 붙인다. ()는 Web UI식 강화, {}는 NovelAI식 강화, []는 약화이다.
-- 괄호로 여러개 묶어서 단어를 강화해도 OK. 단어:숫자는 해당 프롬프트의 가중치를 직접 부여할 수 있다. 숫자가 커질수록 가중치가 커진다. 일반적으로 1이고, 보통 0~2 사이로 쓴다.
-- () 사이에 숫자를 넣으면 권한 증가. [] 사이에 넣으면 권한 약화.
+가장 기초적인 가중치 조절 방법은, 프롬프트의 위치를 조절하는 것이다. 앞쪽으로 어휘를 배치할수록 주의를 얻을 수 있다.
 
-( []는 그 내용을 1.1로 나누기 위해  라고 쓰여져 있음. 확인 필요 )
+가중치는 프롬프트에 괄호를 추가함으로써 조절할 수 있다. **() 혹은 {}는 가중치 강화, []는 가중치 약화이다.**({}는 NovelAI에서 사용하는 방식.) (1girl:1.5) 이런 식으로 괄호 뒤에 ":1.5"를 추가하는 것은 직접 가중치를 설정하는 방식으로, 숫자가 곧 가중치의 크기이며, 숫자가 크면 클 수록 가중치도 커진다. 가중치 기본값은 1이고, 보통 0 ~ 2 사이의 수치를 입력한다.
 
-프롬프트(prompt:권중수) 방식을 강력히 권한다.
+Web UI에서 ()는 그 안의 내용의 가중치에 1.1을 곱하는 것이고, []는 그 안의 내용의 가중치를 1.1로 나누는 것이다. 또한 {}는 Web UI에서는 효과가 없다. 괄호를 계속 겹치는 방식으로도 효과는 있지만, 이 방식은 효율적이지 않고 보기에도 좋지 않다. 예를들면 ((((girl)))) 이렇게 4번 겹쳐서 괄호를 치는 것보다는, 그냥 (girl:1.4641) 이렇게 가중치를 증가시키면 된다.
 
-{{{{}}}}이렇게 하면 ㅈㄴ 더럽기 때문이다. 발동은 하지만.
+**그러므로 (프롬프트:가중치) 방식으로 가중치를 조절하는 것을 강력하게 추천한다.**
 
-한 조의 단어를 선택한 후 방향키를 누르면 위아래로 직접 가중조정을 할 수 있다.
+한 묶음의 단어를 선택한 후 방향키를 누르면 위아래로 직접 가중치를 조절할 수 있다.
 
+### 여러 프롬프트 가중치 조절
 
-
-
-## 다중가중통제
-
-{프롬1,프롬2,프롬3,프롬4_숫자}
-
-괄호 안에 있는 프롬들의 가중치를 한꺼번에 올릴 수 있다.
+가중치 조절은 괄호 안의 모든 프롬프트의 가중치를 조절할 수 있다. 아래 이미지에서는 1girl 이 괄호 안에 있지 않아서 1.5배의 가중치를 얻지 못했기 때문에, 이미지에서 사라진 것을 볼 수 있다.
 
 ![](2022-10-27-13-35-45.png)
 
 ```
-masterpiece,(1girl,flowers,tree,dog_1.5)
+masterpiece,(1girl,flowers,tree,dog:1.5)
 ```
 
 ![](2022-10-27-13-36-49.png)
 
 ```
-masterpiece,(1girl),(flowers,tree,dog_1.5)
+masterpiece,(1girl),(flowers,tree,dog:1.5)
 ```
 
-위 예시를 보면 위는 소녀1girl을 다른 프롬프트와 같이, 아래는 소녀를 분리해서 묶었다.
+### 문장 강화
 
-분리를 했더니 소녀가 사라진다. 상대적으로 적은 가중치를 부여했기 때문.
-
-
-## 문장 강화
-
-한 문장이 'a girl stands with (flowers:1.5) and dog'로 묘사된다면, 그 중 flowers에 대해서만 1.5권의 가중치를 부여하는 것이다.
+한 문장이 'a girl stands with (flowers:1.5) and dog'로 묘사된다면, 그 중 flowers에 대해서만 부분적으로 1.5배의 가중치를 부여할 수 있다.
 
 ![](2022-10-27-13-42-46.png)
 
 
-## 다중강화
+### 다중 강화
 
-가급적이면 괄호 여러개 쳐서 강조하지 말고
-
-하나의 괄호 안에 한 번 재조정하면 된다.
-
-예를 들자면 아래 3개는 같은 가중치를 가진다.
+그 외에,가급적이면 괄호 여러개 쳐서 강조하지 말고 하나의 괄호 안에 한 번에 가중치를 재조정하면 된다. 예를들면 아래와 같은 표현들이 가능하다.
 
 ```
 ((promptA),promptB,promptC)
@@ -186,67 +179,100 @@ masterpiece,(1girl),(flowers,tree,dog_1.5)
 
 ```
 
+최근의 예시를 돌아보면, 묶음으로 사용하는것은 가중치 설정에 혼란을 야기하기 쉬운데, (1girl,flowers,tree,dog:1.5) 이렇게 이미 가중치를 준 것에 더해서 flower:1.5 랑 tree:1.5 이런 식으로 또 가중치를 줘봤을때, 우리는 꽃과 나무에 우리가 예상한 만큼의 가중치 강화가 없다는 것을 알 수 있다.
+
+
 ![](2022-10-27-13-45-37.png)
 
+```
+masterpiece,(1girl,flowers,tree,dog:1.5)
+```
 
-## 융합
 
-두개 혹은 여러개의 키워드로 융합이 가능하다.
+### 융합
 
-예를 들어 cat dog는 고양이와 개를 섞어서 1:1로 가능. 근데 많이 안 씀.
+두개 혹은 여러 개의 키워드는 | 기호를 추가해서 융합이 가능하다. 하지만 많이 쓰지는 않는다. 예를 들어 cat|dog는 고양이와 개를 섞는 것으로, 혼합되었을때의 가중치는 1:1 이다. 
 
-cat:0.2 dog 이렇게 해서 그 비율을 조정할 수도 있다. 이 비율은 최대 100이며 마이너스일 수 있고, 마이너스는 통제불능의 반대 효과가 있을 수 있다. 
+cat:0.2|dog 이렇게 혼합 비율을 조절할 수도 있다. 이 비율은 최대 100이며, 음수값을 줄 수도 있고, 음수값은 통제불능의 상반된 효과가 있을 수도 있다. 
 
 ```
-cat:1 happy:-0.2 cute:-0:3
+cat:1|happy:-0.2|cute:-0:3
 ```
 
 ![](2022-10-27-13-47-00.png)
+
+비록 기괴하지만, 개와 고양이의 변화를 볼 수 있다. 
 
 [참고링크 : 서로 다른 개념을 쓰까보고 싶을때: Prompt editing과 alternating](https://arca.live/b/aiart/60911605)
 
 
 ## 넓은 의미의 삼단술식 구조
 
-그림 한벌, 이게 어떤 그림인지, 구체적인 상황 ->
+```
+그림 한폭, 이게 어떤 그림인지, 구체적인 상황 ->
 
 한 사람, 이게 어떤 사람인지, 사람의 구체적인 상황(사람의 모습, 어떤 옷인지, 사람이 뭘 원하는지) ->
 
 한가지 배경, 이게 어떤 배경인지, 그 배경의 구체적인 상황(배경에 무엇이 있는지, 어떤 특색이 있는지) ->
 
-배경의 물체, 이것이 어떤 물체인가, 그 물체의 구체적인 상황 ->
+배경의 물체, 이것이 어떤 물체인가, 그 물체의 구체적인 상황
+```
 
-이 논리를 통해, 그러면 화면의 모든 것이 규칙적으로 할 수 있다. 큰 것부터 작은 것까지의 순서 묘사 : 
-
-전체그림, (화풍 표현 1, 2), 주요 목표의 수(1girl), 주요 목표의 종류, 주요 목표의 구체적인 표현, 주요 목표에 대한 특수효과와 수식, 부차 목표의 수, 부차 목표의 종류, 부차 목표의 구체적인 표현, 부차 목표에 대한 특수 효과와 수식
-
-예시 :
+이 논리를 사용함으로써, 이미지 장면 안의 모든 것을 일정한 규칙성을 지니고 큰 것부터 작은 것까지의 순서로 묘사할 수 있다 : 
 
 ```
-masterpiece, best quality, best 8k wallpaper, realistic oil painting, 1 magic girl, beautiful face, attractive red lips and beautiful big shining eyes, cream colored long curly hair with high ponytail, gold hair ornaments and star earrings, gorgeous white dress, gold patterns and lace, solo, sit down near a river in the forest, flowers, sunlight, bright spots, shine
+전체 그림, 화풍 표현, 주요 목표의 수, 주요 목표의 종류, 주요 목표의 구체적인 표현, 주요 목표에 대한 특수효과와 수식어, 부차 목표의 수, 부차 목표의 종류, 부차 목표의 구체적인 표현, 부차 목표에 대한 특수 효과와 수식어
+```
+
+이런 식으로 한번 시험해보자.
+```
+그림 한폭, 유화 이미지, 여자가 숲 속에 있는 유화, 여자는 세련되게 입은 마법사, 그녀는 아름다운 얼굴을 가졌다, 매혹적인 붉은 입술과 반짝이는 큰 눈망울, 베이지색 긴 포니테일 헤어스타일과 별 귀걸이, 화려한 흰색 드레스에 금빛 무늬와 레이스 테두리를 장식했다, 그녀는 숲속에 조용히 앉아 있다, 숲 속에 꽃무더기와 나무와 강이 있다, 햇빛이 수풀을 뚫고 밝은 반점을 뿌렸다, 삼림 전체가 반짝반짝 빛나고 있다
+```
+
+이것은 아래와 같이 4개 부분으로 구분할 수 있다.
+
+```
+masterpiece, best quality, best 8k wallpaper, 
+```
+
+```
+realistic oil painting, 
+```
+
+```
+1 magic girl, beautiful face, attractive red lips and beautiful big shining eyes, cream colored long curly hair with high ponytail, gold hair ornaments and star earrings, gorgeous white dress, gold patterns and lace, solo, sit down near a river in the forest,
+```
+
+```
+flowers, sunlight, bright spots, shine
 ```
 
 ![](2022-10-27-14-03-25.png)
 
+보면 알수 있듯이, 이미지에서 우리가 구현되기 원했던 것들 중 일부는 성공했고 일부는 실패했다. 이는 가중치가 조절되지 않았기 때문이고, 이제 우리는 가중치를 조절해볼 것이다. 위 4개 중 우리가 당초 원했던 느낌에 가장 가까운 이미지는 좌측 하단의 것인데, 나머지 이미지들은 앉아있는 자세와 허벅지, 꽃 같은게 부각되지 않으므로, 우리는 이렇게 부각되지 않는 요소들을 좀더 강화시킬 것이다.
 
-그림을 그리면 원하는 것도 있고 안 되는 것도 있는데, 그건 아직 비중이 조정되지 않았기 때문. 왼쪽 모서리에 있는 그림이 제일 마음에 드는데, 다른 이미지들에는 앉은 자세, 허벅지, 꽃밭 이런 요소들이 부족하다.
-
-따라서 모자라는 요소들을 보강한다.
+앞서 입력한 프롬프트와의 차이점을 보기 쉽게, 마찬가지로 4개 부분으로 나눠서 생각해보자.
 
 ```
-masterpiece, best quality, best 8k wallpaper, realistic oil painting, 1 magic girl, beautiful face, attractive red lips and beautiful big shining eyes, cream coloured long curly hair with high ponytail, gold hair ornaments and star earrings, gorgeous white dress, gold patterns and lace, solo,(sit down:1.2) near a river in the forest, upper body, (thigh:1.2), (flowers:1.1), sunlight, bright spots, shine
+masterpiece, best quality, best 8k wallpaper, 
 ```
 
-맨 처음 예시 프롬프트에서의 변경점과 변경된 결과에 주목한다
+```
+realistic oil painting, 
+```
 
-- sit down -> (sit down:1.2)
-- upper body 추가
-- (thigh:1.2) 추가
-- (flowers:1.1) 추가
+
+```
+1 magic girl, beautiful face, attractive red lips and beautiful big shining eyes, cream coloured long curly hair with high ponytail, gold hair ornaments and star earrings, gorgeous white dress, gold patterns and lace, solo,(sit down:1.2) near a river in the forest, upper body, (thigh:1.2), 
+```
+
+```
+(flowers:1.1), sunlight, bright spots, shine
+```
 
 ![](2022-10-28-17-49-20.png)
 
-꽃의 양이 부족할 수도 있다. 그러면 다시 첨가할 수 있다. 거기에 디테일을 더하면 된다. 다만, 기술량을 늘리면 보다 상세한 내용을 담을 수 있도록 크기를 늘려야 한다. 크기는 항상 표현 내용의 양과 서로 부합해야 한다.
+기본적으로 원하던 바를 충족했는데, 만약 꽃의 수량이 좀 부족해 보이면, 꽃에 0.1의 가중치를 추가할수도 있다. 그럼 이제 세부사항을 좀더 추가해보자. 묘사의 양을 좀더 늘리고, 더 많아진 세부사항을 수용하기 위해 그에 상응하도록 이미지의 사이즈를 키워야 한다. 이미지의 사이즈는 묘사되는 내용의 양에 맞춰야 한다. 
 
 ![](2022-10-28-17-57-49.png)
 
@@ -258,11 +284,11 @@ masterpiece, best quality, best 8k wallpaper, realistic oil painting, 1 magic gi
 
 ![](2022-10-28-17-59-12.png)
 
-위의 예시는 한 장의 그림에 두 가지 화풍이 동시에 존재하는 그림이다. AI 화풍이 뒤섞여 있는 경우, inpaint와 img2img 로 2차 처리를 하더라도, 화풍 수정은 비교적 어렵다.
+위의 예시는 한 장의 그림에 두 가지 화풍이 동시에 존재하는 그림이다, 원래는 할 수 없는 일이지만, AI 화풍이 뒤섞여 있는 경우, inpaint와 img2img 로 2차 처리를 하더라도, 화풍 수정은 비교적 어렵다.
 
 ![](2022-10-28-18-00-13.png)
 
-동시에 한 그림에 나오는 두 종류의 화풍이 다른 물체도 다루기 힘들다. AI 두 개의 화풍이 나오도록 할 수는 있지만, 원하는 물체에 나타날 수 있을지는 미지수이다.
+동시에 한 그림에 나오는, 화풍이 두 종류로 서로 다른 물체도 다루기 힘들다. AI는 두 개의 화풍이 나오도록 할 수는 있지만, 원하는 물체에 나타나게 할 수 있을지는 미지수이다.
 
 
 # 현려술 구성 논리
@@ -508,6 +534,33 @@ extremely delicate and beautiful girls, beautiful detailed eyes, glowing eyes,
 
 
 ### 예 2 (모리화법 장면)
+
+```
+(extremely detailed CG unity 8k wallpaper),(masterpiece), (best quality), (ultra-detailed), (best illustration),(best shadow), (an extremely delicate and beautiful), dynamic angle, floating, finely detail, (bloom), (shine), glinting stars, classic, (painting), (sketch),
+
+a girl, solo, bare shoulders, flat_chest, diamond and glaring eyes, beautiful detailed cold face, very long blue and sliver hair, floating black feathers, wavy hair, extremely delicate and beautiful girls, beautiful detailed eyes, glowing eyes,
+
+palace, the best building, ((Fire butterflies, Flying sparks, Flames))
+```
+
+![](2022-10-28-21-28-13.png)
+
+![](2022-10-28-21-28-22.png)
+
+
+### 예 3 (미즈모리법 장면)
+
+```
+(extremely detailed CG unity 8k wallpaper),(masterpiece), (best quality), (ultra-detailed), (best illustration),(best shadow), (an extremely delicate and beautiful), classic, dynamic angle, floating, finely detail, Depth of field, classic, (painting), (sketch), (bloom), (shine), glinting stars,
+
+a girl, solo, bare shoulders, flat_chest, diamond and glaring eyes, beautiful detailed cold face, very long blue and sliver hair, floating black feathers, wavy hair, extremely delicate and beautiful girls, beautiful detailed eyes, glowing eyes,
+
+river, (forest),palace, (fairyland,feather,flowers, nature),(sunlight),Hazy fog, mist,
+```
+
+![](2022-10-28-21-29-06.png)
+
+![](2022-10-28-21-29-11.png)
 
 
 
