@@ -4,56 +4,56 @@ AI/WebAI/StableDiffusion/참고자료/프롬프트/
 
 목차
 
-- [표준 삼단술식의 기초 논리](#표준-삼단술식의-기초-논리)
-  - [접두어](#접두어)
-    - [기본 접두어](#기본-접두어)
-    - [화풍 결정 단어](#화풍-결정-단어)
-    - [화면 효과 단어](#화면-효과-단어)
-  - [주체(화면상의 본체 부분)](#주체화면상의-본체-부분)
-  - [장면(배경, 환경)](#장면배경-환경)
-  - [주체와 장면의 비율](#주체와-장면의-비율)
-    - [가중치 조절](#가중치-조절)
-    - [여러 프롬프트 가중치 조절](#여러-프롬프트-가중치-조절)
-    - [문장 강화](#문장-강화)
-    - [다중 강화](#다중-강화)
-    - [융합](#융합)
-  - [넓은 의미의 삼단술식 구조](#넓은-의미의-삼단술식-구조)
-- [현려술 구성 논리](#현려술-구성-논리)
-  - [주의사항](#주의사항)
-  - [기본 접두사](#기본-접두사)
-  - [현려술의 기본효과 (색채와 광원)](#현려술의-기본효과-색채와-광원)
-  - [현려술 화풍](#현려술-화풍)
-    - [흔한 2차원 화풍](#흔한-2차원-화풍)
-    - [실사체 화풍](#실사체-화풍)
-  - [현려술 특수효과 (플래쉬 구축)](#현려술-특수효과-플래쉬-구축)
-  - [일부 장면의 특수 효과](#일부-장면의-특수-효과)
-    - [태양의 자연 속성](#태양의-자연-속성)
-    - [삼림 + 강](#삼림--강)
-    - [빙설](#빙설)
-    - [안개](#안개)
-    - [불꽃](#불꽃)
-    - [무지개](#무지개)
-    - [피비린내](#피비린내)
-    - [건축물](#건축물)
-  - [세밀한 캐릭터 특수효과](#세밀한-캐릭터-특수효과)
-    - [눈](#눈)
-    - [얼굴](#얼굴)
-    - [머리](#머리)
-  - [인물 촬영 구도](#인물-촬영-구도)
-  - [실제 사례](#실제-사례)
-    - [예 1 (장미법 장면)](#예-1-장미법-장면)
-    - [예 2 (모리화법 장면)](#예-2-모리화법-장면)
-    - [예 3 (미즈모리법 장면)](#예-3-미즈모리법-장면)
-- [참고자료](#참고자료)
+- [1. 표준 삼단술식의 기초 논리](#1-표준-삼단술식의-기초-논리)
+  - [1.1. 접두어](#11-접두어)
+    - [1.1.1. 기본 접두어](#111-기본-접두어)
+    - [1.1.2. 화풍 결정 단어](#112-화풍-결정-단어)
+    - [1.1.3. 화면 효과 단어](#113-화면-효과-단어)
+  - [1.2. 주체(화면상의 본체 부분)](#12-주체화면상의-본체-부분)
+  - [1.3. 장면(배경, 환경)](#13-장면배경-환경)
+  - [1.4. 주체와 장면의 비율](#14-주체와-장면의-비율)
+    - [1.4.1. 가중치 조절](#141-가중치-조절)
+    - [1.4.2. 여러 프롬프트 가중치 조절](#142-여러-프롬프트-가중치-조절)
+    - [1.4.3. 문장 강화](#143-문장-강화)
+    - [1.4.4. 다중 강화](#144-다중-강화)
+    - [1.4.5. 융합](#145-융합)
+  - [1.5. 넓은 의미의 삼단술식 구조](#15-넓은-의미의-삼단술식-구조)
+- [2. 현려술 구성 논리](#2-현려술-구성-논리)
+  - [2.1. 주의사항](#21-주의사항)
+  - [2.2. 기본 접두사](#22-기본-접두사)
+  - [2.3. 현려술의 기본효과 (색채와 광원)](#23-현려술의-기본효과-색채와-광원)
+  - [2.4. 현려술 화풍](#24-현려술-화풍)
+    - [2.4.1. 흔한 2차원 화풍](#241-흔한-2차원-화풍)
+    - [2.4.2. 실사체 화풍](#242-실사체-화풍)
+  - [2.5. 현려술 특수효과 (플래쉬 구축)](#25-현려술-특수효과-플래쉬-구축)
+  - [2.6. 일부 장면의 특수 효과](#26-일부-장면의-특수-효과)
+    - [2.6.1. 태양의 자연 속성](#261-태양의-자연-속성)
+    - [2.6.2. 삼림 + 강](#262-삼림--강)
+    - [2.6.3. 빙설](#263-빙설)
+    - [2.6.4. 안개](#264-안개)
+    - [2.6.5. 불꽃](#265-불꽃)
+    - [2.6.6. 무지개](#266-무지개)
+    - [2.6.7. 피비린내](#267-피비린내)
+    - [2.6.8. 건축물](#268-건축물)
+  - [2.7. 세밀한 캐릭터 특수효과](#27-세밀한-캐릭터-특수효과)
+    - [2.7.1. 눈](#271-눈)
+    - [2.7.2. 얼굴](#272-얼굴)
+    - [2.7.3. 머리](#273-머리)
+  - [2.8. 인물 촬영 구도](#28-인물-촬영-구도)
+  - [2.9. 실제 사례](#29-실제-사례)
+    - [2.9.1. 예 1 (장미법 장면)](#291-예-1-장미법-장면)
+    - [2.9.2. 예 2 (모리화법 장면)](#292-예-2-모리화법-장면)
+    - [2.9.3. 예 3 (미즈모리법 장면)](#293-예-3-미즈모리법-장면)
+- [3. 참고자료](#3-참고자료)
 
 
 [원본 주소](https://arca.live/b/aiart/61501508)
 
-# 표준 삼단술식의 기초 논리
+# 1. 표준 삼단술식의 기초 논리
 
 **접두어 + 주체 + 장면(scene) (+ 접미어)**
 
-## 접두어
+## 1.1. 접두어
 
 접두어 부분은 아래 3가지 종류를 합쳐 부르는 말이다.
 
@@ -63,27 +63,27 @@ AI/WebAI/StableDiffusion/참고자료/프롬프트/
 
 이미지의 전체적인 느낌을 정의해서 퀄리티를 향상시키는 역할이다.
 
-### 기본 접두어
+### 1.1.1. 기본 접두어
 이미지의 퀄리티를 강조.
 - masterpiece
 - bestquality
 - 등등
 
-### 화풍 결정 단어
+### 1.1.2. 화풍 결정 단어
 이미지의 화풍을 강조.
 - illustration : 일러스트 
 - watercolor_medium : 수채화
 - impasto : 임파스토. 유화의 기법 중 하나
 - 등등
 
-### 화면 효과 단어
+### 1.1.3. 화면 효과 단어
 빛이나 이미지 화면 전체에 적용되는 효과 관련.
 - bestlighting
 - lensflare : 렌즈 플레어 
 - Depthoffield : 피사계 심도(Depth of field). 카메라 초점을 중심으로 그 뒤로는 흐릿해지는 효과.
 - 등등
 
-## 주체(화면상의 본체 부분)
+## 1.2. 주체(화면상의 본체 부분)
 
 본체는 그림이 부각하려는 주체로, 인물, 건축물, 배경물 등을 말한다. 다양한 주체를 묘사함으로써 디테일이 풍부한 그림을 얻을 수 있다.
 
@@ -93,7 +93,7 @@ AI/WebAI/StableDiffusion/참고자료/프롬프트/
 
 캐릭터가 없을 때는 장면의 중요한 점, 즉 구름처럼 높이 솟은 성, 피어나는 꽃, 부서진 시계 등 화면의 중심에 있는 물체를 묘사한다.
 
-## 장면(배경, 환경)
+## 1.3. 장면(배경, 환경)
 
 장면(scene)은 주체가 존재하는 주변 장면을 말하고, 장면 묘사가 없을 때는 단색 배경이거나, 효과 태그(tag)와 연관있는 풍경이 만들어지기 쉽고, 주체가 크게 보이게 만들어질 수 있다. 일부 주체는 그 자체가 장면을 의미하기도 하는데, 건축물 혹은 배경물 등이 그렇다.
 
@@ -118,11 +118,11 @@ clockbackground
 
 접두사 끝에 있는 화면 효과 단어에 접미사를 썼을때, 만약 주체의 묘사가 적다면, 풍경의 가중치가 너무 커져서 주체가 실종되는 결과를 낳는다.
 
-## 주체와 장면의 비율
+## 1.4. 주체와 장면의 비율
 
 주체와 장면의 가중치를 조절함으로써 주체의 크기와 비중을 조절할 수 있다. 그 외에도 주체를 수식함으로써 주체의 표시 범위를 조절할 수 있는데, 사람에 대한 표현은 제2장의 인물 촬영 관계 란에서 볼 수 있다.
 
-### 가중치 조절
+### 1.4.1. 가중치 조절
 
 **가중치 조절은 매우 중요한 부분이고, 이건 당신이 그리고 싶은 것이 AI의 주의(Attention)를 얻을 수 있느냐 없느냐와 관련 있는 부분이다.**
 
@@ -136,7 +136,7 @@ Web UI에서 ()는 그 안의 내용의 가중치에 1.1을 곱하는 것이고,
 
 한 묶음의 단어를 선택한 후 방향키를 누르면 위아래로 직접 가중치를 조절할 수 있다.
 
-### 여러 프롬프트 가중치 조절
+### 1.4.2. 여러 프롬프트 가중치 조절
 
 가중치 조절은 괄호 안의 모든 프롬프트의 가중치를 조절할 수 있다. 아래 이미지에서는 1girl 이 괄호 안에 있지 않아서 1.5배의 가중치를 얻지 못했기 때문에, 이미지에서 사라진 것을 볼 수 있다.
 
@@ -152,14 +152,14 @@ masterpiece,(1girl,flowers,tree,dog:1.5)
 masterpiece,(1girl),(flowers,tree,dog:1.5)
 ```
 
-### 문장 강화
+### 1.4.3. 문장 강화
 
 한 문장이 'a girl stands with (flowers:1.5) and dog'로 묘사된다면, 그 중 flowers에 대해서만 부분적으로 1.5배의 가중치를 부여할 수 있다.
 
 ![](2022-10-27-13-42-46.png)
 
 
-### 다중 강화
+### 1.4.4. 다중 강화
 
 그 외에,가급적이면 괄호 여러개 쳐서 강조하지 말고 하나의 괄호 안에 한 번에 가중치를 재조정하면 된다. 예를들면 아래와 같은 표현들이 가능하다.
 
@@ -182,7 +182,7 @@ masterpiece,(1girl,flowers,tree,dog:1.5)
 ```
 
 
-### 융합
+### 1.4.5. 융합
 
 두개 혹은 여러 개의 키워드는 | 기호를 추가해서 융합이 가능하다. 하지만 많이 쓰지는 않는다. 예를 들어 cat|dog는 고양이와 개를 섞는 것으로, 혼합되었을때의 가중치는 1:1 이다. 
 
@@ -199,7 +199,7 @@ cat:1|happy:-0.2|cute:-0:3
 [참고링크 : 서로 다른 개념을 쓰까보고 싶을때: Prompt editing과 alternating](https://arca.live/b/aiart/60911605)
 
 
-## 넓은 의미의 삼단술식 구조
+## 1.5. 넓은 의미의 삼단술식 구조
 
 ```
 그림 한폭, 이게 어떤 그림인지, 구체적인 상황 ->
@@ -284,15 +284,15 @@ realistic oil painting,
 동시에 한 그림에 나오는, 화풍이 두 종류로 서로 다른 물체도 다루기 힘들다. AI는 두 개의 화풍이 나오도록 할 수는 있지만, 원하는 물체에 나타나게 할 수 있을지는 미지수이다.
 
 
-# 현려술 구성 논리
+# 2. 현려술 구성 논리
 
 기본 접두사 + 현려술 기본효과 + 현려술 특수효과 + 상세한 주체 묘사 + 장면 묘사 + 장면 특수효과
 
-## 주의사항
+## 2.1. 주의사항
 
 현려술은 장면을 미화하는 술법이기 때문에, 본체 묘사와 장면 묘사의 균형에 유의해야 하고, 이 점은 괄호를 사용해 개선할 수 있다. 현려술의 특수효과는 장면을 묘사하여 본체를 강조하고 장면을 보강하는데에 있다.
 
-## 기본 접두사
+## 2.2. 기본 접두사
 
 고품질 이미지를 불러오는데 사용된다.
 
@@ -305,7 +305,7 @@ extremely detailed CG unity 8k wallpaper,masterpiece, best quality, ultra-detail
 - best quality
 - ultra-detailed
 
-## 현려술의 기본효과 (색채와 광원)
+## 2.3. 현려술의 기본효과 (색채와 광원)
 
 광원과 색채는 현려술의 기초이다.
 
@@ -317,11 +317,11 @@ best illumination, best shadow, an extremely delicate and beautiful
 - best shadow
 - an extremely delicate and beautiful
 
-## 현려술 화풍
+## 2.4. 현려술 화풍
 
 (선택가능) 상세한 화풍 어휘를 추가하면 이미지의 퀄리티를 개선할 수 있으며, 화풍 어휘는 변경할 수 있다.
 
-### 흔한 2차원 화풍 
+### 2.4.1. 흔한 2차원 화풍 
 
 ![](2022-10-28-18-18-05.png)
 
@@ -330,7 +330,7 @@ best illumination, best shadow, an extremely delicate and beautiful
 classic, illustration,painting, sketch,
 ```
 
-### 실사체 화풍
+### 2.4.2. 실사체 화풍
 
 ![](2022-10-28-18-19-40.png)
 
@@ -339,7 +339,7 @@ impasto, photorealistic, realistic, oilpainting
 ```
 
 
-## 현려술 특수효과 (플래쉬 구축)
+## 2.5. 현려술 특수효과 (플래쉬 구축)
 
 떠다니는 광원, 풍부한 공간 속의 색채로서 사용
 
@@ -355,9 +355,9 @@ dynamic angle, floating, finely detail, (bloom), (shine), glinting stars,
 - glinting stars,
 
 
-## 일부 장면의 특수 효과
+## 2.6. 일부 장면의 특수 효과
 
-### 태양의 자연 속성
+### 2.6.1. 태양의 자연 속성
 
 ```
 feather,nature,(sunlight), fairyland,
@@ -367,7 +367,7 @@ feather,nature,(sunlight), fairyland,
 - (sunlight)
 - fairyland
 
-### 삼림 + 강
+### 2.6.2. 삼림 + 강
 
 ```
 river, forest, flowers, beautiful and delicate water,
@@ -377,7 +377,7 @@ river, forest, flowers, beautiful and delicate water,
 - flowers
 - beautiful and delicate water
 
-### 빙설
+### 2.6.3. 빙설
 
 ```
 Snowflakes, detailed ice, beautiful detailed water,
@@ -387,7 +387,7 @@ Snowflakes, detailed ice, beautiful detailed water,
 - beautiful detailed water
 
 
-### 안개
+### 2.6.4. 안개
 
 ```
 Hazy fog, mist
@@ -395,7 +395,7 @@ Hazy fog, mist
 - Hazy fog
 - mist
 
-### 불꽃
+### 2.6.5. 불꽃
 
 ```
 Fire butterflys, Flying sparks, Flames
@@ -405,13 +405,13 @@ Fire butterflys, Flying sparks, Flames
 - Flames
 
 
-### 무지개
+### 2.6.6. 무지개
 
 ```
 Iridescence and rainbow
 ```
 
-### 피비린내
+### 2.6.7. 피비린내
 
 ```
 Bloodstain, Blood drop, Blood fog,
@@ -421,14 +421,14 @@ Bloodstain, Blood drop, Blood fog,
 - Blood drop
 - Blood fog
 
-### 건축물
+### 2.6.8. 건축물
 
 ```
 the best building,
 ```
 
 
-## 세밀한 캐릭터 특수효과
+## 2.7. 세밀한 캐릭터 특수효과
 
 ```
 Beautiful detailed girl, extremely delicate and beautiful girls,
@@ -437,7 +437,7 @@ Beautiful detailed girl, extremely delicate and beautiful girls,
 - extremely delicate and beautiful girls
 
 
-### 눈
+### 2.7.1. 눈
 
 ```
 beautiful detailed eyes, glowing eyes,blank stare,
@@ -447,7 +447,7 @@ beautiful detailed eyes, glowing eyes,blank stare,
 - blank stare
 
 
-### 얼굴
+### 2.7.2. 얼굴
 
 ```
 beautiful face,extremely_beautiful_detailed_anime_face, cute face, bright skin,
@@ -458,7 +458,7 @@ beautiful face,extremely_beautiful_detailed_anime_face, cute face, bright skin,
 - bright skin
 
 
-### 머리
+### 2.7.3. 머리
 
 ```
 long wavy curly hair,dishevelled hair,
@@ -467,7 +467,7 @@ long wavy curly hair,dishevelled hair,
 - dishevelled hair
 
 
-## 인물 촬영 구도
+## 2.8. 인물 촬영 구도
 
 - 몸 전체 장면 full body
 - 정면 view straight on, selfie
@@ -485,7 +485,7 @@ long wavy curly hair,dishevelled hair,
 - 횡단촬영 landscape
 - 초상화 portrait 
 
-## 실제 사례
+## 2.9. 실제 사례
 
 ```
 Steps: 40, Sampler: Euler, CFG scale: 6, Size: 960x512, Model hash: e6e8e1fc, Eta: 0.67
@@ -495,7 +495,7 @@ Steps: 40, Sampler: Euler, CFG scale: 6, Size: 960x512, Model hash: e6e8e1fc, Et
 
 아래의 예에서 사용된 인물 묘사는 모두 원소법전인 은왕좌에서 온 것이다.
 
-### 예 1 (장미법 장면)
+### 2.9.1. 예 1 (장미법 장면)
 
 프롬프트
 
@@ -524,7 +524,7 @@ extremely delicate and beautiful girls, beautiful detailed eyes, glowing eyes,
 ![](2022-10-28-18-50-48.png)
 
 
-### 예 2 (모리화법 장면)
+### 2.9.2. 예 2 (모리화법 장면)
 
 ```
 (extremely detailed CG unity 8k wallpaper),(masterpiece), (best quality), (ultra-detailed), (best illustration),(best shadow), (an extremely delicate and beautiful), dynamic angle, floating, finely detail, (bloom), (shine), glinting stars, classic, (painting), (sketch),
@@ -539,7 +539,7 @@ palace, the best building, ((Fire butterflies, Flying sparks, Flames))
 ![](2022-10-28-21-28-22.png)
 
 
-### 예 3 (미즈모리법 장면)
+### 2.9.3. 예 3 (미즈모리법 장면)
 
 ```
 (extremely detailed CG unity 8k wallpaper),(masterpiece), (best quality), (ultra-detailed), (best illustration),(best shadow), (an extremely delicate and beautiful), classic, dynamic angle, floating, finely detail, Depth of field, classic, (painting), (sketch), (bloom), (shine), glinting stars,
@@ -554,6 +554,6 @@ river, (forest),palace, (fairyland,feather,flowers, nature),(sunlight),Hazy fog,
 ![](2022-10-28-21-29-11.png)
 
 
-# 참고자료
+# 3. 참고자료
 
 [원소법전 제작자의 기초강의 요점정리 노트](https://arca.live/b/aiart/61501508)
