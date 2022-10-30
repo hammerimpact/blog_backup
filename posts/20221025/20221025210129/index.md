@@ -1,4 +1,4 @@
-Web UI 관련 프롬프트 분석
+표준삼단술식과 현려술 입문과 분석
 
 AI/WebAI/StableDiffusion/참고자료/프롬프트/
 
@@ -10,8 +10,8 @@ AI/WebAI/StableDiffusion/참고자료/프롬프트/
     - [화풍 결정 단어](#화풍-결정-단어)
     - [화면 효과 단어](#화면-효과-단어)
   - [주체(화면상의 본체 부분)](#주체화면상의-본체-부분)
-  - [풍경(배경, 환경)](#풍경배경-환경)
-  - [주체와 풍경의 비율](#주체와-풍경의-비율)
+  - [장면(배경, 환경)](#장면배경-환경)
+  - [주체와 장면의 비율](#주체와-장면의-비율)
     - [가중치 조절](#가중치-조절)
     - [여러 프롬프트 가중치 조절](#여러-프롬프트-가중치-조절)
     - [문장 강화](#문장-강화)
@@ -21,36 +21,29 @@ AI/WebAI/StableDiffusion/참고자료/프롬프트/
 - [현려술 구성 논리](#현려술-구성-논리)
   - [주의사항](#주의사항)
   - [기본 접두사](#기본-접두사)
-  - [현려술의 기본효과 (극한 색채와 빛의 그림자)](#현려술의-기본효과-극한-색채와-빛의-그림자)
-  - [현란한 화풍](#현란한-화풍)
+  - [현려술의 기본효과 (색채와 광원)](#현려술의-기본효과-색채와-광원)
+  - [현려술 화풍](#현려술-화풍)
     - [흔한 2차원 화풍](#흔한-2차원-화풍)
-    - [사실적 화풍](#사실적-화풍)
+    - [실사체 화풍](#실사체-화풍)
   - [현려술 특수효과 (플래쉬 구축)](#현려술-특수효과-플래쉬-구축)
-  - [일부 장면의 특수 효과.](#일부-장면의-특수-효과)
+  - [일부 장면의 특수 효과](#일부-장면의-특수-효과)
     - [태양의 자연 속성](#태양의-자연-속성)
-    - [삼림수](#삼림수)
-    - [얼음과 눈](#얼음과-눈)
-    - [흐릿흐릿하다](#흐릿흐릿하다)
+    - [삼림 + 강](#삼림--강)
+    - [빙설](#빙설)
+    - [안개](#안개)
     - [불꽃](#불꽃)
     - [무지개](#무지개)
-    - [피비린내 나다](#피비린내-나다)
+    - [피비린내](#피비린내)
     - [건축물](#건축물)
-    - [슈퍼 세밀 캐릭터 특수효과](#슈퍼-세밀-캐릭터-특수효과)
+  - [세밀한 캐릭터 특수효과](#세밀한-캐릭터-특수효과)
     - [눈](#눈)
     - [얼굴](#얼굴)
     - [머리](#머리)
-    - [인물 촬영 관계](#인물-촬영-관계)
-    - [기타](#기타)
+  - [인물 촬영 구도](#인물-촬영-구도)
   - [실제 사례](#실제-사례)
     - [예 1 (장미법 장면)](#예-1-장미법-장면)
     - [예 2 (모리화법 장면)](#예-2-모리화법-장면)
     - [예 3 (미즈모리법 장면)](#예-3-미즈모리법-장면)
-- [프롬프트 모음](#프롬프트-모음)
-  - [메인 프롬프트](#메인-프롬프트)
-    - [통합팩 기본 메인 프롬프트](#통합팩-기본-메인-프롬프트)
-  - [부정 프롬프트](#부정-프롬프트)
-    - [통합팩 기본 부정 프롬프트](#통합팩-기본-부정-프롬프트)
-    - [중국발 부정 프롬프트](#중국발-부정-프롬프트)
 - [참고자료](#참고자료)
 
 
@@ -58,7 +51,7 @@ AI/WebAI/StableDiffusion/참고자료/프롬프트/
 
 # 표준 삼단술식의 기초 논리
 
-**접두어 + 주체 + 풍경 (+ 접미어)**
+**접두어 + 주체 + 장면(scene) (+ 접미어)**
 
 ## 접두어
 
@@ -100,9 +93,9 @@ AI/WebAI/StableDiffusion/참고자료/프롬프트/
 
 캐릭터가 없을 때는 장면의 중요한 점, 즉 구름처럼 높이 솟은 성, 피어나는 꽃, 부서진 시계 등 화면의 중심에 있는 물체를 묘사한다.
 
-## 풍경(배경, 환경)
+## 장면(배경, 환경)
 
-풍경은 주체가 존재하는 주변 풍경을 말하고, 풍경 묘사가 없을 때는 단색 배경이거나, 효과 태그(tag)와 연관있는 풍경이 만들어지기 쉽고, 주체가 크게 보이게 만들어질 수 있다. 일부 주체는 그 자체가 풍경을 의미하기도 하는데, 건축물 혹은 배경물 등이 그렇다.
+장면(scene)은 주체가 존재하는 주변 장면을 말하고, 장면 묘사가 없을 때는 단색 배경이거나, 효과 태그(tag)와 연관있는 풍경이 만들어지기 쉽고, 주체가 크게 보이게 만들어질 수 있다. 일부 주체는 그 자체가 장면을 의미하기도 하는데, 건축물 혹은 배경물 등이 그렇다.
 
 **단독 환경 어휘는 본체 주변과 함께 화면 전체의 풍경을 가득 채우는 장면을 형성한다.**
 
@@ -125,9 +118,9 @@ clockbackground
 
 접두사 끝에 있는 화면 효과 단어에 접미사를 썼을때, 만약 주체의 묘사가 적다면, 풍경의 가중치가 너무 커져서 주체가 실종되는 결과를 낳는다.
 
-## 주체와 풍경의 비율
+## 주체와 장면의 비율
 
-주체와 풍경의 가중치를 조절함으로써 주체의 크기와 비중을 조절할 수 있다. 그 외에도 주체를 수식함으로써 주체의 표시 범위를 조절할 수 있는데, 사람에 대한 표현은 제2장의 인물 촬영 관계 란에서 볼 수 있다.
+주체와 장면의 가중치를 조절함으로써 주체의 크기와 비중을 조절할 수 있다. 그 외에도 주체를 수식함으로써 주체의 표시 범위를 조절할 수 있는데, 사람에 대한 표현은 제2장의 인물 촬영 관계 란에서 볼 수 있다.
 
 ### 가중치 조절
 
@@ -293,11 +286,11 @@ realistic oil painting,
 
 # 현려술 구성 논리
 
-기본 접두사 + 현려술 기본효과 + 현려술 특수효과 + 상세주체묘사 + 장면묘사 + 장면특효
+기본 접두사 + 현려술 기본효과 + 현려술 특수효과 + 상세한 주체 묘사 + 장면 묘사 + 장면 특수효과
 
 ## 주의사항
 
-현려술은 장면을 미화하는 술법이기 때문에, 본체 묘사와 장면 묘사의 균형에 유의해야 한다는 점을 괄호로 개선할 수 있다. 현려술의 특효는 장면을 묘사하여 본체를 강조하고 장면을 보강하는 데 있다.
+현려술은 장면을 미화하는 술법이기 때문에, 본체 묘사와 장면 묘사의 균형에 유의해야 하고, 이 점은 괄호를 사용해 개선할 수 있다. 현려술의 특수효과는 장면을 묘사하여 본체를 강조하고 장면을 보강하는데에 있다.
 
 ## 기본 접두사
 
@@ -312,9 +305,9 @@ extremely detailed CG unity 8k wallpaper,masterpiece, best quality, ultra-detail
 - best quality
 - ultra-detailed
 
-## 현려술의 기본효과 (극한 색채와 빛의 그림자)
+## 현려술의 기본효과 (색채와 광원)
 
-빛의 그림자와 색채는 화사한 기초이다.
+광원과 색채는 현려술의 기초이다.
 
 ```
 best illumination, best shadow, an extremely delicate and beautiful
@@ -324,9 +317,9 @@ best illumination, best shadow, an extremely delicate and beautiful
 - best shadow
 - an extremely delicate and beautiful
 
-## 현란한 화풍
+## 현려술 화풍
 
-(선택가능) 상세화풍어를 첨가하면 화풍사의 품격을 개선하고, 화풍사는 변경할 수 있다
+(선택가능) 상세한 화풍 어휘를 추가하면 이미지의 퀄리티를 개선할 수 있으며, 화풍 어휘는 변경할 수 있다.
 
 ### 흔한 2차원 화풍 
 
@@ -337,7 +330,7 @@ best illumination, best shadow, an extremely delicate and beautiful
 classic, illustration,painting, sketch,
 ```
 
-### 사실적 화풍
+### 실사체 화풍
 
 ![](2022-10-28-18-19-40.png)
 
@@ -348,7 +341,7 @@ impasto, photorealistic, realistic, oilpainting
 
 ## 현려술 특수효과 (플래쉬 구축)
 
-떠다니는 빛의 그림자, 풍부한 공간 속의 색채에 사용
+떠다니는 광원, 풍부한 공간 속의 색채로서 사용
 
 ```
 dynamic angle, floating, finely detail, (bloom), (shine), glinting stars,
@@ -362,7 +355,7 @@ dynamic angle, floating, finely detail, (bloom), (shine), glinting stars,
 - glinting stars,
 
 
-## 일부 장면의 특수 효과.
+## 일부 장면의 특수 효과
 
 ### 태양의 자연 속성
 
@@ -374,7 +367,7 @@ feather,nature,(sunlight), fairyland,
 - (sunlight)
 - fairyland
 
-### 삼림수
+### 삼림 + 강
 
 ```
 river, forest, flowers, beautiful and delicate water,
@@ -384,7 +377,7 @@ river, forest, flowers, beautiful and delicate water,
 - flowers
 - beautiful and delicate water
 
-### 얼음과 눈
+### 빙설
 
 ```
 Snowflakes, detailed ice, beautiful detailed water,
@@ -394,7 +387,7 @@ Snowflakes, detailed ice, beautiful detailed water,
 - beautiful detailed water
 
 
-### 흐릿흐릿하다
+### 안개
 
 ```
 Hazy fog, mist
@@ -418,7 +411,7 @@ Fire butterflys, Flying sparks, Flames
 Iridescence and rainbow
 ```
 
-### 피비린내 나다
+### 피비린내
 
 ```
 Bloodstain, Blood drop, Blood fog,
@@ -435,7 +428,7 @@ the best building,
 ```
 
 
-### 슈퍼 세밀 캐릭터 특수효과
+## 세밀한 캐릭터 특수효과
 
 ```
 Beautiful detailed girl, extremely delicate and beautiful girls,
@@ -474,15 +467,13 @@ long wavy curly hair,dishevelled hair,
 - dishevelled hair
 
 
-### 인물 촬영 관계
+## 인물 촬영 구도
 
 - 몸 전체 장면 full body
 - 정면 view straight on, selfie
 - 전신을 굽어보다 aerial, full body, whole body, wide shot，vertical view
 
-
-### 기타
-
+기타
 - 미거리 촬영 macro shot
 - 가까워 close up
 - 여자의 반신사진 portrait of girl
@@ -508,7 +499,7 @@ Steps: 40, Sampler: Euler, CFG scale: 6, Size: 960x512, Model hash: e6e8e1fc, Et
 
 프롬프트
 
-(1) 기초 술식 + 순리술
+(1) 기초 술식 + 현려술
 ```
 (extremely detailed CG unity 8k wallpaper),(masterpiece), (best quality), (ultra-detailed), (best illustration),(best shadow), (an extremely delicate and beautiful), dynamic angle, floating, finely detail, (bloom), (shine), glinting stars, classic, (painting), (sketch),
 ```
@@ -561,31 +552,6 @@ river, (forest),palace, (fairyland,feather,flowers, nature),(sunlight),Hazy fog,
 ![](2022-10-28-21-29-06.png)
 
 ![](2022-10-28-21-29-11.png)
-
-
-
-
-# 프롬프트 모음
-
-## 메인 프롬프트
-
-### 통합팩 기본 메인 프롬프트
-```
-masterpiece, best quality
-```
-
-## 부정 프롬프트
-
-### 통합팩 기본 부정 프롬프트
-```
-lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, artist name
-```
-
-### 중국발 부정 프롬프트
-이 때는 모델을 animefull-latest로 사용.
-```
-multiple breasts, (mutated hands and fingers:1.5), (long body :1.3), (mutation, poorly drawn :1.2), black-white, bad anatomy, liquid body, liquid tongue, disfigured, malformed, mutated, anatomical nonsense, text font ui, error, malformed hands, long neck, blurred, lowers, low res, bad anatomy, bad proportions, bad shadow, uncoordinated body, unnatural body, fused breasts, bad breasts, huge breasts, poorly drawn breasts, extra breasts, liquid breasts, heavy breasts, missing breasts, huge haunch, huge thighs, huge calf, bad hands, fused hand, missing hand, disappearing arms, disappearing thigh, disappearing calf, disappearing legs, fused ears, bad ears, poorly drawn ears, extra ears, liquid ears, heavy ears, missing ears, fused animal ears, bad animal ears, poorly drawn animal ears, extra animal ears, liquid animal ears, heavy animal ears, missing animal ears, text, ui, error, missing fingers, missing limb, fused fingers, one hand with more than 5 fingers, one hand with less than 5 fingers, one hand with more than 5 digit, one hand with less than 5 digit, extra digit, fewer digits, fused digit, missing digit, bad digit, liquid digit, colorful tongue, black tongue, cropped, watermark, username, blurry, JPEG artifacts, signature, 3D, 3D game, 3D game scene, 3D character, malformed feet, extra feet, bad feet, poorly drawn feet, fused feet, missing feet, extra shoes, bad shoes, fused shoes, more than two shoes, poorly drawn shoes, bad gloves, poorly drawn gloves, fused gloves, bad cum, poorly drawn cum, fused cum, bad hairs, poorly drawn hairs, fused hairs, big muscles, ugly, bad face, fused face, poorly drawn face, cloned face, big face, long face, bad eyes, fused eyes poorly drawn eyes, extra eyes, malformed limbs, more than 2 nipples, missing nipples, different nipples, fused nipples, bad nipples, poorly drawn nipples, black nipples, colorful nipples, gross proportions. short arm, (((missing arms))), missing thighs, missing calf, missing legs, mutation, duplicate, morbid, mutilated, poorly drawn hands, more than 1 left hand, more than 1 right hand, deformed, (blurry), disfigured, missing legs, extra arms, extra thighs, more than 2 thighs, extra calf, fused calf, extra legs, bad knee, extra knee, more than 2 legs, bad tails, bad mouth, fused mouth, poorly drawn mouth, bad tongue, tongue within mouth, too long tongue, black tongue, big mouth, cracked mouth, bad mouth, dirty face, dirty teeth, dirty pantie, fused pantie, poorly drawn pantie, fused cloth, poorly drawn cloth, bad pantie, yellow teeth, thick lips, bad camel toe, colorful camel toe, bad asshole, poorly drawn asshole, fused asshole, missing asshole, bad anus, bad pussy, bad crotch, bad crotch seam, fused anus, fused pussy, fused anus, fused crotch, poorly drawn crotch, fused seam, poorly drawn anus, poorly drawn pussy, poorly drawn crotch, poorly drawn crotch seam, bad thigh gap, missing thigh gap, fused thigh gap, liquid thigh gap, poorly drawn thigh gap, poorly drawn anus, bad collarbone, fused collarbone, missing collarbone, liquid collarbone, strong girl, obesity, worst quality, low quality, normal quality, liquid tentacles, bad tentacles, poorly drawn tentacles, split tentacles, fused tentacles, missing clit, bad clit, fused clit, colorful clit, black clit, liquid clit, QR code, bar code, censored, safety panties, safety knickers, beard, furry,pony, pubic hair, mosaic, excrement, faeces, shit, futa, testis
-```
 
 
 # 참고자료

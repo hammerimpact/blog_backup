@@ -2,13 +2,15 @@ HammerImpact Blog Markdown Documents backup
 
 # Top 10 recent posts
 
+- [Web UI 관련 프롬프트 분석](posts/20221030/20221030025316/index.md)
+
 - [런포드로 Web UI 가동](posts/20221027/20221027193913/index.md)
 
 - [WebUI 중급 사용법 정리](posts/20221025/20221025213944/index.md)
 
 - [Web UI 관련 모델 모음](posts/20221025/20221025210807/index.md)
 
-- [Web UI 관련 프롬프트 분석](posts/20221025/20221025210129/index.md)
+- [표준삼단술식과 현려술 입문과 분석](posts/20221025/20221025210129/index.md)
 
 - [Web UI 관련 참고자료 모음](posts/20221025/20221025135434/index.md)
 
@@ -19,8 +21,6 @@ HammerImpact Blog Markdown Documents backup
 - [맥 키보드에서 마크다운 코드블럭용 기호 입력](posts/20221023/20221023025629/index.md)
 
 - [그림으로 이해하는 Stable Diffusion (번역)](posts/20221021/20221021063238/index.md)
-
-- [Stable Diffusion Web UI Github 위키 번역 1장 기능(Features)](posts/20221020/20221020040131/index.md)
 
 # Tags
 
