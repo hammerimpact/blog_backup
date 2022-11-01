@@ -295,6 +295,241 @@ iroha (blue archive), masterpiece, Intricate details, long hair, red hair, messy
 어느정도 캐릭터 틀 완성되면 포즈 넣고 돌리면 된다
 
 
+## 저장용 NAI 꿀팁, 프롬프트
+
+[원본글](https://arca.live/b/aiart/60031153)
+
+### 공용 프롬프트
+
+masterpiece = 품질개선
+
+high quality = 퀄리티 상향
+
+highres = 고해상도
+
+sidelighting = 양면 조명효과
+
+intricate details = 장식이 화려해짐
+
+Octane render = 카툰렌더링 효과
+
+looking at viewer = 정면을 바라보게한다
+
+(색깔) theme 혹은 (색깔) tone = 메인 색감
+
+supplementray (색깔) = 메인 색감 보조
+
+mature = 청아 방지
+
+white arms = 피부가 희게 나옴
+
+delicate facial features = 얼굴을 자세하게 그리기(전신일때 비추)
+
+blurry, blurry background = 흐릿한배경. 캐릭터를 디테일하게 해줌
+
+NSFW = 후방주의
+
+
+### 작품 태그, 작가 태그
+
+
+블루아카이브, 마비노기 아바타, 아이돌마스터, 포켓몬 등등의 작품표현이 가능함. 상당히 많으니까 찾아보면 좋음.
+
+blue archive
+
+anime style
+
+kyoto animation
+
+medieval style
+
+excellent anime style oil painting 아니메 스타일 한정으로 그림 퀄리티 대폭 늘려줌
+
+같은 태그를 자주사용했던거같음.
+
+작가 태그도 마찬가지. 챈에 검색해보면 추천 작가 태그가 많으니 골라먹도록하자.
+
+
+
+### 배경 OR 동작
+
+
+standing, running, walking, fighting, sleeping, sitting 등 대부분의 동작을 사용가능
+
+forest, dungeon, garden, library 등 각종 장소를 지정가능
+
+
+혹은 테이블에 앉아있기, 승마, 빗자루에 타고있기 등 영어로 번역기돌려서 생각보다 디테일하게 지정할수있음.
+
+tear over the leg = 다리 들기
+
+
+### 외형
+
+(색깔, 외형) + hair 
+
+혹은 (색깔, 외형) + eyes 등 허용되는게 많음
+
+예를들어서 젖은 머리를 표현하고싶으면
+
+"wet blond hair" 등의 표현도 허락됌
+
+어느정도 추상적인 표현도 가능
+
+bang = 앞머리
+
+messy hair = 물결진,웨이브가 있는 머리카락
+
+hair ornament = 머리장식이 있을경우
+
+long, short hair 등 = 머리길이 조절
+
+blush = 홍조
+
+색은 입맛대로 바꿀테니 굳이 안적겠음
+
+
+### 체형 및 성별
+
+1girl ~ = 한명, 다수 전부 가능
+
+1boy ~ = 한명, 다수 전부 가능
+
+full body = 전신이 나옴
+
+bust shot = 머리에서 가슴까지만 나옴
+
+tall female = 키가 크게나옴, 가끔 비율 망가짐
+
+little girl = 로리
+
+small breasts, large breasts = 가슴 비율
+
+
+### 자주 쓰는 복장 프롬프트
+
+**(1) 상의**
+
+swimming suit = 수영복
+
+bathrobe = 가운
+
+bikini = 비키니
+
+blazer = 블레이저
+
+crop top = 배꼽티
+
+evening dress = 고급스러운 드레스
+
+halterneck = 홀터넥
+
+hanbok = 한복
+
+kimono = 기모노
+
+loose shirt = 널널한 셔츠
+
+school uniform = 교복
+
+( Noble academy school uniform = 좀더 고급진 교복을 그려줌 )
+
+skirtsuit = 정장
+
+sundress = 노출 많은 드레스
+
+sweater = 스웨터
+
+sweatsuit = 트레이닝복
+
+tank top = 나시
+
+tracksuit = 츄리닝
+
+wedding dress = 웨딩 드레스
+
+
+
+See-through Shirt Wet clothes 
+
+= 젖은, 비치는 옷
+
+
+
+이외에 더 많지만 "~~ Clothes" 를 사용하면 복장지정 가능
+
+
+
+**(2) 하의**
+
+Garter belt = 가터벨트
+
+hot pants = 핫팬츠
+
+leggings = 레깅스
+
+pantyhose = 팬티스타킹
+
+skinny jeans = 꽉끼는바지(청바지류)
+
+stocking = 스타킹
+
+short jean = 짧은 청바지
+
+
+
+
+## Novel ai 그림 생성 팁
+
+[원본글](https://arca.live/b/aiart/59974440)
+
+delicate facial features - 얼굴 좀더 자세히 그리라는 키워드. 그다지 필요없는것같기도 함. 이걸 쓰면 얼굴로 줌 되는듯한 효과있음. 전신샷 원하면 빼는게 나을수도 있음
+
+
+Intricate details, Octane render - 앞의거는 세세한 디테일을 더하는 일반적인 키워드, 뒤에거는 약간 카툰렌더링 느낌 주는 키워드. 전자는 그냥 넣으면 좋고, 후자는 그냥 내 취향이니 완전히 2d 애니메이션풍을 원하면 빼면됨
+
+
+
+## SD에서 똥손도 할 수 있는 결손장애 극복하는 방법
+
+[원본글](https://arca.live/b/aiart/60235327)
+
+
+![](2022-11-01-09-56-09.png)
+
+맘에 드는 그림이 나왔는데 다리나 팔이 없거나 하는 경우가 있을거임
+
+
+![](2022-11-01-09-56-19.png)
+
+
+그럼 일단 그림을 그림판으로 단색이라도 좋으니 대충 비슷한 색깔로 끄적임
+
+![](2022-11-01-09-56-33.png)
+
+그리고 인페인트에서 수정 범위를 정하고 같은 프롬프트로 굴림
+
+![](2022-11-01-09-56-44.png)
+
+
+## img2img 팁 한번 더
+
+![](2022-11-01-09-58-44.png)
+
+머리위에 있는 이상한 헤일로를 지우고 벚꽃을 걷게하고싶은 모양임
+
+![](2022-11-01-09-58-53.png)
+
+포토샵으로 대충 합성함
+
+이제 이걸 img2 img2 넣음
+
+![](2022-11-01-09-59-04.png)
+
+![](2022-11-01-09-59-12.png)
+
+머리위에있는 이상한것도 사라지고 벚꽃에서 걷게되었음
+
 
 
 # 프롬프트 모음
